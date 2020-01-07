@@ -58,4 +58,6 @@ hexo.extend.tag.register('aplayerlist', function(args, content) {
   }
 }, {ends: true});
 
-
+hexo.extend.tag.register('dplayer', function (args) {
+  return null;
+});

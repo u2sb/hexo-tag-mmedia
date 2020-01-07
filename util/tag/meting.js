@@ -14,9 +14,11 @@ class MetingTag extends BaseTag {
     }
 
     parse(options) {
-        if ("auto" in options) {
+        let reg = /^auto:http/;
+        if (reg.test(options)) {
             let settings = Object.assign({}, METING_TAG_OPTION_AUTO);
-            ([settings.id, settings.server, settings.type] = options)
+            ([settings.auto] = options)
+            settings.auto = settings.auto.substr(5);
             let settings2 = this.optionsSwitch(options, 1);
             settings = Object.assign(settings, settings2);
             return settings
