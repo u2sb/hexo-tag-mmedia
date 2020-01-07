@@ -1,0 +1,27 @@
+{
+  "name": "hexo-tag-mmedia",
+  "version": "0.0.1",
+  "description": "A media tag for Hexo",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonoLogueChi/hexo-tag-mmedia.git"
+  },
+  "keywords": [
+    "Hexo",
+    "Media",
+    "Meting",
+    "Aplayer",
+    "Dplayer",
+    "Bilibili"
+  ],
+  "author": "MonoLogueChi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MonoLogueChi/hexo-tag-mmedia/issues"
+  },
+  "homepage": "https://github.com/MonoLogueChi/hexo-tag-mmedia#readme"
+}
