@@ -8,27 +8,27 @@ const BaseTag = require('./base'),
 class MetingTag extends BaseTag {
     constructor(hexo, args) {
         super(hexo, args);
-        this.settings = this.parse(args);
         this.metingConfig = this.config.get('meting');
         this.aplayerConfig = this.config.get('aplayer');
+        this.settings = this.parse(args);    
     }
 
     parse(options) {
         let reg = /^auto:http/;
         if (reg.test(options)) {
-            let settings = Object.assign({}, METING_TAG_OPTION_AUTO);
+            let settings = Object.assign({}, METING_TAG_OPTION_AUTO, this.metingConfig.default);
             ([settings.auto] = options)
-            settings.auto = settings.auto.substr(5);
+            settings.auto = extractOptionValue(settings.auto);
             let settings2 = this.optionsSwitch(options, 1);
             settings = Object.assign(settings, settings2);
-            return settings
+            return settings;
         }
         else {
-            let settings = Object.assign({}, METING_TAG_OPTION);
+            let settings = Object.assign({}, METING_TAG_OPTION, this.metingConfig.default);
             ([settings.id, settings.server, settings.type] = options)
             let settings2 = this.optionsSwitch(options, 3);
             settings = Object.assign(settings, settings2);
-            return settings
+            return settings;
         }
     }
 

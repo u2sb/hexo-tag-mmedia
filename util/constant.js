@@ -17,5 +17,10 @@ exports.METING_TAG_OPTION_AUTO = {
 }
 
 exports.DPLAYER_TAG_OPTION = {
-    
+    url: '', pic: '', thumbnails: '', type: 'auto',
+    id: '', api: 'https://api.prprpr.me/dplayer/v3/', addition: [], token: '', maximum: '10000', user: 'DIYgod', bottom: '15%', unlimited: true,
+    suburl: '', subtype: 'webvtt', subbottom: '40px', subcolor: '#fff', subfontSize: '20px',
+    autoplay: false, loop: false, screenshot: false, theme: '#b7daff', lang: '', hotkey: true, preload: 'auto', logo:'', volume: 0.7, mutex: true, highlight: [],
+    contextmenu: [], 
+    code: 'dp.on("fullscreen", function () { if (/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) { screen.orientation.lock("landscape"); }});'
 }

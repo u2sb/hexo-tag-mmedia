@@ -7,8 +7,8 @@ const BaseTag = require('./base'),
 class AplayerListTag extends BaseTag {
     constructor(hexo, args) {
         super(hexo, args);
-        this.settings = this.parse(args);
         this.aplayerConfig = this.config.get('aplayer');
+        this.settings = this.parse(args);        
     }
 
     parse(options) {
@@ -16,7 +16,7 @@ class AplayerListTag extends BaseTag {
             narrow: false,
             autoplay: false,
             showlrc: 0
-        }, JSON.parse(options));
+        }, this.aplayerConfig.default, JSON.parse(options));
         settings.music.forEach(info => {
             info.url = info.url;
             info.pic = info.pic ? info.pic : '';

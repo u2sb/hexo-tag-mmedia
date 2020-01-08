@@ -7,13 +7,13 @@ const BaseTag = require('./base'),
 class AplayerLyricTag extends BaseTag {
     constructor(hexo, args, lyrics) {
         super(hexo, args);
-        this.settings = this.parse(args);
         this.aplayerConfig = this.config.get('aplayer');
         this.lyrics = lyrics;
+        this.settings = this.parse(args);        
     }
 
     parse(options) {
-        let settings = Object.assign({}, APLAYER_TAG_OPTION);
+        let settings = Object.assign({}, APLAYER_TAG_OPTION, this.aplayerConfig.default);
         ([settings.title, settings.author, settings.url] = options)
         const optionalArgs = options.slice(3);
         optionalArgs.forEach((option, index) => {
