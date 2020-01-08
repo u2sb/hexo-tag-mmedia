@@ -10,12 +10,24 @@ hexo媒体插入插件
 - [BiliBili](https://www.bilibili.com/)
 - 更多平台后续会有更新...
 
+## 演示
+
+[https://doc.video.xwhite.studio/mmedia/show.html](https://doc.video.xwhite.studio/mmedia/show.html)
+
 ## 使用方法
 
 ### 安装
 
 ```
 npm install hexo-tag-mmedia --save
+```
+
+如安装hexo-tag-dplayer和hexo-tag-aplayer请先卸载
+
+```
+npm uninstall hexo-tag-dplayer
+
+npm uninstall hexo-tag-aplayer
 ```
 
 ### _config.yml
@@ -70,6 +82,8 @@ default项下可配置默认选项，例如：
 - `auto` : `string` 自动，含有auto选项时前面参数不需要填写，否则为必填，例如：`"auto:https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html"`
 - `autoplay`,`fixed`,`mini`,`listfolded` : 带有这些参数表示`true`，没有表示`false`
 - 其他参数同[MetingJS](https://github.com/metowolf/MetingJS)一致（无“-”，带有“-”的参数删掉“-”）
+
+后端服务器可以使用官方后端，也可以使用我自己写的后端服务器 [MetingJS.Server](https://github.com/MonoLogueChi/MetingJS.Server)。
 
 ### Aplayer
 
@@ -138,7 +152,7 @@ default项下可配置默认选项，例如：
 
 参数：
 
-不兼容 hexo-tag-dplayer，不能直接迁移，需要讲"="替换为":"
+不兼容 hexo-tag-dplayer，不能直接迁移，需要将"="替换为":"
 
 - `url` : `string` 视频地址，必填
 - `pic` : `string` 封面
@@ -171,6 +185,7 @@ default项下可配置默认选项，例如：
 - `highlight` : `string` 高光点，可叠加，例如`"highlight:{time: 20, text: '这是第 20 秒'}"`
 - `code` : `string` 额外代码，不懂不要填，需要写的请参考源码
 
+弹幕可以使用官方提供弹幕服务器，也可以使用我开发的弹幕服务器自己搭建 [Dplayer.Danmaku](https://github.com/MonoLogueChi/Dplayer.Danmaku)。
 
 ### BiliBili
 
@@ -191,8 +206,8 @@ default项下可配置默认选项，例如：
 
 ## 参考
 
-[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)
-[hexo-tag-dplayer](https://github.com/MoePlayer/hexo-tag-dplayer)
+[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)  
+[hexo-tag-dplayer](https://github.com/MoePlayer/hexo-tag-dplayer)  
 
 ## 反馈
 
