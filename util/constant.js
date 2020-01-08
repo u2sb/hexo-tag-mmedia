@@ -5,7 +5,7 @@ exports.APLAYER_TAG_OPTION = {
 };
 
 exports.METING_TAG_OPTION = {
-    id: '', server: '', type: '', mode: 'circulation',
+    id: '', server: '', type: '',
     autoplay: false, mutex: true, listmaxheight: '340px',
     preload: 'auto', theme: '#ad7a86'
 };

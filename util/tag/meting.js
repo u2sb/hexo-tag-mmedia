@@ -67,9 +67,6 @@ class MetingTag extends BaseTag {
                 case option.startsWith('mutex:'):
                     settings.mutex = (extractOptionValue(option) === 'true')
                     break
-                case option.startsWith('mode:'):
-                    settings.mode = extractOptionValue(option)
-                    break
                 case option.startsWith('listmaxheight:'):
                     settings.listmaxheight = extractOptionValue(option)
                     break
