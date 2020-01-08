@@ -4,7 +4,8 @@ const MetingTag = require('./util/tag/meting'),
   AplayerTag = require('./util/tag/aplayer'),
   AplayerLrcTag = require('./util/tag/aplayerLyric'),
   APlayerListTag = require('./util/tag/aplayerList'),
-  DPlayerTag = require('./util/tag/dplayer');
+  DPlayerTag = require('./util/tag/dplayer'),
+  BilibiliTag = require('./util/tag/bilibili');
 
 
 hexo.extend.tag.register('meting', function(args) {
@@ -63,6 +64,19 @@ hexo.extend.tag.register('dplayer', function (args) {
   try {
     let dplayer = new DPlayerTag(hexo, args);
     return dplayer.generate();
+  } catch (e) {
+    console.error(e);
+    return `
+			<script>
+				console.error("${e}");
+			</script>`;
+  }
+});
+
+hexo.extend.tag.register('bilibili', function (args) {  
+  try {
+    let bplayer = new BilibiliTag(hexo, args);
+    return bplayer.generate();
   } catch (e) {
     console.error(e);
     return `

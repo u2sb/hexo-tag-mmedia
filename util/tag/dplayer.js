@@ -9,7 +9,6 @@ class DplayerTag extends BaseTag {
         super(hexo, args);
         this.dplayerConfig = this.config.get('dplayer');
         this.settings = this.parse(args);
-
     }
 
     parse(options) {

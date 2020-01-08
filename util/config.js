@@ -8,12 +8,16 @@ class Config {
       meting: {
         cdn: "https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js",
         api: null,
-        default: {}
+        default: {
+          example: ''
+        }
       },
       aplayer: {
         cdn: "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js",
         style_cdn: "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css",
-        default: {}
+        default: {
+          example: ''
+        }
       },
       dplayer: {
         cdn: "https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js",
@@ -23,10 +27,12 @@ class Config {
         shaka_dash_cdn: 'https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js',
         flv_cdn: 'https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js',
         webtorrent_cdn: 'https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js',
-        default: {}
+        default: {
+          example: ''
+        }
       },
-      biliBili: {
-
+      bilibili: {
+        default: {}
       }
     }
     if (hexo.config.mmedia) {
