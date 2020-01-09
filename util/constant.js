@@ -26,5 +26,5 @@ exports.DPLAYER_TAG_OPTION = {
 };
 
 exports.BILIBILI_TAG_OPTION = {
-    aid: '', page: 1, quality: 'low', danmaku: false, allowfullscreen: 'allowfullscreen', width: '100%', height: '500px'
+    aid: '', page: 1, quality: 'low', danmaku: false, allowfullscreen: 'allowfullscreen', width: '100%', height: '500px', margin: 'auto'
 };

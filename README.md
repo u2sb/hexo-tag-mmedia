@@ -203,6 +203,7 @@ default项下可配置默认选项，例如：
 - `allowfullscreen` : `bool` 是否允许全屏，默认true，带有此参数表示true，不带表示false
 - `width` : `string` 宽度，`px` `%`
 - `height` : `string` `px` `%`
+- `margin` : `string` 位置，css属性，例：`"margin:auto"` `"margin:0 0 0 auto"`
 
 ## 参考
 

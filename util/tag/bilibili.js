@@ -39,18 +39,24 @@ class BiliBiliTag extends BaseTag {
                 case option.startsWith('height:'):
                     settings.height = extractOptionValue(option);
                     break;
+                case option.startsWith('margin:'):
+                    settings.margin = extractOptionValue(option);
+                    break;
             }
         });
         return settings;
     }
 
     generate() {
-        let { aid, page, quality, danmaku, allowfullscreen, width, height } = this.settings;
+        let { aid, page, quality, danmaku, allowfullscreen, width, height, margin } = this.settings;
 
         return `
-        <iframe src="//player.bilibili.com/player.html?aid=${aid}&page=${page}&high_quality=${quality == 'high' ? 1 : 0}&danmaku=${danmaku}"
+        <style>.bbplayer{width: ${width}; height: ${height}; margin: ${margin}}</style>
+        <div class="bbplayer">
+        <iframe class="bbplayer" src="//player.bilibili.com/player.html?aid=${aid}&page=${page}&high_quality=${quality == 'high' ? 1 : 0}&danmaku=${danmaku}"
             allowfullscreen="${(allowfullscreen == 'allowfullscreen' || allowfullscreen == 'true') ? 'allowfullscreen' : 'no'}"
-            width="${width}" height="${height}" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+            scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+        </div>
         `;
     }
 }
