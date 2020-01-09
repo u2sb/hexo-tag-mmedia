@@ -55,7 +55,7 @@ class BiliBiliTag extends BaseTag {
         <div class="bbplayer">
         <iframe class="bbplayer" src="//player.bilibili.com/player.html?aid=${aid}&page=${page}&high_quality=${quality == 'high' ? 1 : 0}&danmaku=${danmaku}"
             allowfullscreen="${(allowfullscreen == 'allowfullscreen' || allowfullscreen == 'true') ? 'allowfullscreen' : 'no'}"
-            scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+            scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe>
         </div>
         `;
     }
