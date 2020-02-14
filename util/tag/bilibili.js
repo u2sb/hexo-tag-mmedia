@@ -30,8 +30,8 @@ class BiliBiliTag extends BaseTag {
                 case option === 'danmaku':
                     settings.danmaku = true;
                     break;
-                case option === 'allowfullscreen':
-                    settings.allowfullscreen = 'allowfullscreen';
+                case option.startsWith('allowfullscreen'):
+                    settings.allowfullscreen = (extractOptionValue(option) === 'true');
                     break;
                 case option.startsWith('width:'):
                     settings.width = extractOptionValue(option);

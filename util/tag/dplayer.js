@@ -46,8 +46,8 @@ class DplayerTag extends BaseTag {
                 case option.startsWith('bottom:'):
                     settings.bottom = extractOptionValue(option);
                     break;
-                case option === 'unlimited':
-                    settings.unlimited = true;
+                case option.startsWith('unlimited'):
+                    settings.unlimited = (extractOptionValue(option) === 'true');
                     break;
                 case option.startsWith('addition:'):
                     settings.addition.push(extractOptionValue(option));
@@ -78,11 +78,11 @@ class DplayerTag extends BaseTag {
                 case option === 'screenshot':
                     settings.screenshot = true;
                     break;
-                case option === 'hotkey':
-                    settings.hotkey = true;
+                case option.startsWith('hotkey'):
+                    settings.hotkey = (extractOptionValue(option) === 'true');
                     break;
-                case option === 'mutex':
-                    settings.mutex = true;
+                case option.startsWith('mutex'):
+                    settings.mutex = (extractOptionValue(option) === 'true');
                     break;
                 case option.startsWith('theme:'):
                     settings.theme = extractOptionValue(option);
