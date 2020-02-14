@@ -25,6 +25,10 @@ exports.DPLAYER_TAG_OPTION = {
     code: 'dp.on("fullscreen", function () { if (/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) { screen.orientation.lock("landscape"); }});'
 };
 
+exports.ARTPLATER_TAG_OPTION = {
+    url: '', type: ''
+};
+
 exports.BILIBILI_TAG_OPTION = {
     aid: '', page: 1, quality: 'low', danmaku: false, allowfullscreen: 'allowfullscreen', width: '100%', height: '500px', margin: 'auto'
 };

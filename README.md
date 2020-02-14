@@ -51,6 +51,15 @@ mmedia:
     flv_cdn: https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js
     webtorrent_cdn: https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js
     default: 
+  artplayer:
+    cdn: https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js
+    style_cdn: https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.css
+    hls_cdn: https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js
+    dash_cdn: https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js
+    shaka_dash_cdn: https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js
+    flv_cdn: https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js
+    webtorrent_cdn: https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js
+    default: 
   bilibili:
     default: 
 ```
@@ -215,3 +224,9 @@ default项下可配置默认选项，例如：
 如果有什么问题吗，请尽可能详细写在[issue](https://github.com/MonoLogueChi/hexo-tag-mmedia/issues)中。
 
 > 不会写JS，有问题也不一定能解决。
+
+## QQ群
+
+159891059
+
+![](https://s2.ax1x.com/2020/02/14/1jAh1U.png)

@@ -8,16 +8,12 @@ class Config {
       meting: {
         cdn: "https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js",
         api: null,
-        default: {
-          example: ''
-        }
+        default: {}
       },
       aplayer: {
         cdn: "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js",
         style_cdn: "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css",
-        default: {
-          example: ''
-        }
+        default: {}
       },
       dplayer: {
         cdn: "https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js",
@@ -27,9 +23,17 @@ class Config {
         shaka_dash_cdn: 'https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js',
         flv_cdn: 'https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js',
         webtorrent_cdn: 'https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js',
-        default: {
-          example: ''
-        }
+        default: {}
+      },
+      artplayer: {
+        cdn: "https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js",
+        style_cdn: "https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.css",
+        hls_cdn: 'https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js',
+        dash_cdn: 'https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js',
+        shaka_dash_cdn: 'https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js',
+        flv_cdn: 'https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js',
+        webtorrent_cdn: 'https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js',
+        default: {}
       },
       bilibili: {
         default: {}
