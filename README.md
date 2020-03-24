@@ -14,6 +14,8 @@ hexo媒体插入插件
 
 [https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/](https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/)
 
+> BiliBili平台已支持 bvid 方式
+
 ## 参考
 
 [hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)  
