@@ -127,7 +127,6 @@ class DplayerTag extends BaseTag {
         let video, dankamu, subtitle = '';
 
         let tag = '';
-        tag += `<link rel="stylesheet" href="${this.dplayerConfig.style_cdn}">`;
         tag += `<div id="dplayer"></div>`;
         tag += `<script src="${this.dplayerConfig.cdn}"></script>`;
         switch (type) {
