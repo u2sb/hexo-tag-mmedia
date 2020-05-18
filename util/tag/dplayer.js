@@ -155,7 +155,7 @@ class DplayerTag extends BaseTag {
             ? ''
             : `subtitle: { url: '${suburl}', type: '${subtype}', fontSize: '${subfontSize}', bottom: '${subbottom}', color: '${subcolor}'},`;
         dankamu = (id == null || id == '')
-        ?'{}'
+        ?''
         :`danmaku: {id: '${id}', api: '${api}', token: '${token}', maximum: '${maximum}', addition: ${JSON.stringify(addition)}, user: '${user}', bottom: '${bottom}', unlimited: '${unlimited}'},`;
         tag += `
         <script>
