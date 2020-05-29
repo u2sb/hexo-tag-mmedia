@@ -44,12 +44,12 @@ class AplayerLyricTag extends BaseTag {
         return `
                 <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
                 <script src="${this.aplayerConfig.cdn}"></script>
-                <div id="aplayer" style="margin-bottom: 20px;${width}">
+                <div id="${this.tagId}" style="margin-bottom: 20px;${width}">
                     <pre class="aplayer-lrc-content">${this.lyrics}</pre>
                 </div>
             <script>
               var ap = new APlayer({
-                element: document.getElementById("aplayer"),
+                element: document.getElementById("${this.tagId}"),
                 narrow: ${narrow},
                 autoplay: ${autoplay},
                 showlrc: ${lrcOption},

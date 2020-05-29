@@ -152,7 +152,7 @@ class ArtPlayerTag extends BaseTag {
       mutex,
       contextmenu,
       highlight,
-      code
+      code,
     } = this.settings;
 
     let customType,

@@ -29,10 +29,10 @@ class AplayerListTag extends BaseTag {
         return `
             <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
             <script src="${this.aplayerConfig.cdn}"></script>
-            <div id="aplayer" style="margin-bottom: 20px;${width}"></div>
+            <div id="${this.tagId}" style="margin-bottom: 20px;${width}"></div>
         <script>
         var options = ${settings};
-        options.element = document.getElementById("aplayer");
+        options.element = document.getElementById("${this.tagId}");
         var ap = new APlayer(options);
         window.aplayers || (window.aplayers = []);
         window.aplayers.push(ap);

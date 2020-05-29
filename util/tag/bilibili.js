@@ -64,7 +64,7 @@ class BiliBiliTag extends BaseTag {
       allowfullscreen,
       width,
       height,
-      margin
+      margin,
     } = this.settings;
     let id = bvid == null ? `aid=${aid}` : `bvid=${bvid}`;
     return `
