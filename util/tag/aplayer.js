@@ -1,6 +1,7 @@
 const BaseTag = require("./base"),
   Constant = require("../constant"),
   extractOptionValue = require("../util").extractOptionValue,
+  extractOptionKey = require("../util").extractOptionKey,
   throwError = require("../util").throwError,
   APLAYER_TAG_OPTION = Constant.APLAYER_TAG_OPTION;
 
@@ -38,7 +39,9 @@ class AplayerTag extends BaseTag {
           settings.pic = option;
           break;
         default:
-          throwError(`Unrecognized tag argument(${index + 1}): ${value}`);
+          settings.otherSettings[extractOptionKey(option)] = extractOptionValue(
+            option
+          );
       }
     });
     settings.width = settings.narrow ? "" : settings.width;
@@ -56,11 +59,20 @@ class AplayerTag extends BaseTag {
       lrcOption,
       lrcPath,
       width,
+      otherSettings,
     } = this.settings;
+
+    let otherOption;
+    for (let key in otherSettings) {
+      if (otherSettings.hasOwnProperty(key)) {
+        otherSettings += `${key}: ${otherSettings[key]}`;
+      }
+    }
+
     return `
             <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
             <script src="${this.aplayerConfig.cdn}"></script>
-            <div id="${this.tagId}" style="margin-bottom: 20px;${width}"></div>
+            <div id="${this.tagId}" style="margin-bottom: 20px; width: ${width}"></div>
         <script>
           var ap = new APlayer({
             element: document.getElementById("${this.tagId}"),
@@ -73,7 +85,8 @@ class AplayerTag extends BaseTag {
               url: "${url}",
               pic: "${pic}",
               lrc: "${lrcPath}"
-            }
+            },
+            ${otherOption}
           });
           window.aplayers || (window.aplayers = []);
           window.aplayers.push(ap);

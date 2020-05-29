@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-mmedia",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A media tag for Hexo",
   "main": "index.ts",
   "scripts": {
@@ -23,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/MonoLogueChi/hexo-tag-mmedia/issues"
   },
-  "homepage": "https://github.com/MonoLogueChi/hexo-tag-mmedia#readme"
+  "homepage": "https://github.com/MonoLogueChi/hexo-tag-mmedia#文档"
 }

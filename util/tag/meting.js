@@ -1,6 +1,7 @@
 const BaseTag = require("./base"),
   Constant = require("../constant"),
   extractOptionValue = require("../util").extractOptionValue,
+  extractOptionKey = require("../util").extractOptionKey,
   throwError = require("../util").throwError,
   METING_TAG_OPTION = Constant.METING_TAG_OPTION,
   METING_TAG_OPTION_AUTO = Constant.METING_TAG_OPTION_AUTO;
@@ -84,7 +85,7 @@ class MetingTag extends BaseTag {
           settings.theme = extractOptionValue(option);
           break;
         default:
-          throwError(`Unrecognized tag argument(${index + 1}): ${value}`);
+          settings[extractOptionKey(option)] = extractOptionValue(option);
       }
     });
     return settings;

@@ -1,4 +1,4 @@
-import { generateRandomString } from "../util";
+const generateRandomString = require("../util").generateRandomString;
 
 const Config = require("../config"),
   throwError = require("../util").throwError;

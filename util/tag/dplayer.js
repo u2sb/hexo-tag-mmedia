@@ -1,6 +1,7 @@
 const BaseTag = require("./base"),
   Constant = require("../constant"),
   extractOptionValue = require("../util").extractOptionValue,
+  extractOptionKey = require("../util").extractOptionKey,
   throwError = require("../util").throwError,
   DPLAYER_TAG_OPTION = Constant.DPLAYER_TAG_OPTION;
 
@@ -115,7 +116,9 @@ class DplayerTag extends BaseTag {
           break;
 
         default:
-          throwError(`Unrecognized tag argument(${index + 1}): ${value}`);
+          settings.otherSettings[extractOptionKey(option)] = extractOptionValue(
+            option
+          );
       }
     });
     return settings;
@@ -153,7 +156,15 @@ class DplayerTag extends BaseTag {
       contextmenu,
       highlight,
       code,
+      otherSettings,
     } = this.settings;
+
+    let otherOption;
+    for (let key in otherSettings) {
+      if (otherSettings.hasOwnProperty(key)) {
+        otherSettings += `${key}: ${otherSettings[key]}`;
+      }
+    }
 
     let video,
       dankamu,
@@ -220,7 +231,8 @@ class DplayerTag extends BaseTag {
             },
             highlight: ${
               highlight.length > 0 ? JSON.stringify(highlight) : "[]"
-            }
+            },
+            ${otherOption}
         });
         ${code}
         </script>
