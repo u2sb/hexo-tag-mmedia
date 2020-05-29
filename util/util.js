@@ -14,7 +14,7 @@ exports.extractOptionKey = (pair) => {
   return pair.slice(0, pair.indexOf(":"));
 };
 
-export const generateRandomString = function (length) {
+exports.generateRandomString = (length) => {
   const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   return Array.apply(null, { length })
     .map(() => ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length)))
