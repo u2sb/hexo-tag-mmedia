@@ -61,7 +61,7 @@ class AplayerLyricTag extends BaseTag {
     let otherOption;
     for (let key in otherSettings) {
       if (otherSettings.hasOwnProperty(key)) {
-        otherSettings += `${key}: ${otherSettings[key]}`;
+        otherSettings += `${key}: ${otherSettings[key]},`;
       }
     }
     return `
