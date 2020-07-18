@@ -105,7 +105,7 @@ class MetingTag extends BaseTag {
             <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
             <script src="${this.aplayerConfig.cdn}"></script>
             <script src="${this.metingConfig.cdn}"></script>
-            <meting-js${settingLiteral}></meting-js>`;
+            <meting-js ${settingLiteral}></meting-js>`;
     return result;
   }
 }
