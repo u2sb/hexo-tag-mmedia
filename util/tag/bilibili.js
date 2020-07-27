@@ -44,7 +44,7 @@ class BiliBiliTag extends BaseTag {
           settings.width = extractOptionValue(option);
           break;
         case option.startsWith("height:"):
-          settings.height = extractOptionValue(option);
+          settings.max_width = extractOptionValue(option);
           break;
         case option.startsWith("margin:"):
           settings.margin = extractOptionValue(option);
@@ -63,14 +63,14 @@ class BiliBiliTag extends BaseTag {
       danmaku,
       allowfullscreen,
       width,
-      height,
+      max_width,
       margin,
     } = this.settings;
     let id = bvid == null ? `aid=${aid}` : `bvid=${bvid}`;
     return `
-        <style>.bbplayer{width: ${width}; height: ${height}; margin: ${margin}}</style>
+        <style>.bbplayer{width: ${width}; max-width: ${max_width}; margin: ${margin}}</style>
         <div class="bbplayer">
-        <iframe class="bbplayer" src="//player.bilibili.com/player.html?${id}&page=${page}&high_quality=${
+        <iframe class="bbplayer" id="${this.tagId}" src="//player.bilibili.com/player.html?${id}&page=${page}&high_quality=${
       quality == "high" ? 1 : 0
     }&danmaku=${danmaku}"
             allowfullscreen="${
@@ -80,6 +80,12 @@ class BiliBiliTag extends BaseTag {
             }"
             scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe>
         </div>
+        <script>
+            document.getElementById("${this.tagId}").style.height=document.getElementById("${this.tagId}").scrollWidth\*0.76+"px";
+            window.onresize = function(){
+              document.getElementById("${this.tagId}").style.height=document.getElementById("${this.tagId}").scrollWidth\*0.76+"px";
+            };
+        </script>
         `;
   }
 }
