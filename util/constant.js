@@ -61,8 +61,7 @@ exports.DPLAYER_TAG_OPTION = {
   mutex: true,
   highlight: [],
   contextmenu: [],
-  code:
-    'dp.on("fullscreen", function () { if (/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) { screen.orientation.lock("landscape"); }});',
+  code: '',
 };
 
 exports.ARTPLATER_TAG_OPTION = {
@@ -78,6 +77,6 @@ exports.BILIBILI_TAG_OPTION = {
   danmaku: false,
   allowfullscreen: "allowfullscreen",
   width: "100%",
-  height: "500px",
+  max_width: "850px",
   margin: "auto",
 };

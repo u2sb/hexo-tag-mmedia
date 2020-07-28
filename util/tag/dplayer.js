@@ -206,8 +206,8 @@ class DplayerTag extends BaseTag {
             addition
           )}, user: '${user}', bottom: '${bottom}', unlimited: '${unlimited}'},`;
     tag += `
-        <script>
-        var dp = new DPlayer({
+      <script>
+        var dp_${this.mmediaId} = new DPlayer({
             container: document.getElementById('${this.tagId}'),
             autoplay: ${autoplay},
             theme: '${theme}',
@@ -234,8 +234,9 @@ class DplayerTag extends BaseTag {
             },
             ${otherOption}
         });
+        dp_${this.mmediaId}.on("fullscreen", function () { if (/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) { screen.orientation.lock("landscape"); }});
         ${code}
-        </script>
+      </script>
         `;
 
     return tag;

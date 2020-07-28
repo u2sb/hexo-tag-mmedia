@@ -7,7 +7,8 @@ class BaseTag {
   constructor(hexo, args) {
     this.hexo = hexo;
     this.config = new Config(hexo);
-    this.tagId = `mmedia-${generateRandomString(8)}`;
+    this.mmediaId = generateRandomString(8);
+    this.tagId = `mmedia-${this.mmediaId}`;
   }
 
   parse() {

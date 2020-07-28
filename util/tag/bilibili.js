@@ -43,7 +43,7 @@ class BiliBiliTag extends BaseTag {
         case option.startsWith("width:"):
           settings.width = extractOptionValue(option);
           break;
-        case option.startsWith("height:"):
+        case option.startsWith("max_width:"):
           settings.max_width = extractOptionValue(option);
           break;
         case option.startsWith("margin:"):

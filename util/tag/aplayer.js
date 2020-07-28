@@ -74,7 +74,7 @@ class AplayerTag extends BaseTag {
             <script src="${this.aplayerConfig.cdn}"></script>
             <div id="${this.tagId}" style="margin-bottom: 20px; width: ${width}"></div>
         <script>
-          var ap = new APlayer({
+          var ap_${this.mmediaId} = new APlayer({
             element: document.getElementById("${this.tagId}"),
             narrow: ${narrow},
             autoplay: ${autoplay},
@@ -89,7 +89,7 @@ class AplayerTag extends BaseTag {
             ${otherOption}
           });
           window.aplayers || (window.aplayers = []);
-          window.aplayers.push(ap);
+          window.aplayers.push(ap_${this.mmediaId});
         </script>`;
   }
 }

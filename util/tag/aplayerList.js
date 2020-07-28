@@ -35,11 +35,11 @@ class AplayerListTag extends BaseTag {
             <script src="${this.aplayerConfig.cdn}"></script>
             <div id="${this.tagId}" style="margin-bottom: 20px; width: ${width}"></div>
         <script>
-        let options = ${settings};
+        var options = ${settings};
         options.element = document.getElementById("${this.tagId}");
-        let ap = new APlayer(options);
+        var ap_${this.mmediaId} = new APlayer(options);
         window.aplayers || (window.aplayers = []);
-        window.aplayers.push(ap);
+        window.aplayers.push(ap_${this.mmediaId});
         </script>`;
   }
 }

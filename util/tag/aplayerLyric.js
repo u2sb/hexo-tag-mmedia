@@ -71,7 +71,7 @@ class AplayerLyricTag extends BaseTag {
                     <pre class="aplayer-lrc-content">${this.lyrics}</pre>
                 </div>
             <script>
-              let ap = new APlayer({
+              var ap_${this.mmediaId} = new APlayer({
                 element: document.getElementById("${this.tagId}"),
                 narrow: ${narrow},
                 autoplay: ${autoplay},
@@ -85,7 +85,7 @@ class AplayerLyricTag extends BaseTag {
                 ${otherOption}
               });
               window.aplayers || (window.aplayers = []);
-              window.aplayers.push(ap);
+              window.aplayers.push(ap_${this.mmediaId});
             </script>`;
   }
 }
