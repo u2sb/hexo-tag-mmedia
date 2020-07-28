@@ -207,7 +207,7 @@ class DplayerTag extends BaseTag {
           )}, user: '${user}', bottom: '${bottom}', unlimited: '${unlimited}'},`;
     tag += `
         <script>
-        const dp = new DPlayer({
+        var dp = new DPlayer({
             container: document.getElementById('${this.tagId}'),
             autoplay: ${autoplay},
             theme: '${theme}',

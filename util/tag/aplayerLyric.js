@@ -20,7 +20,7 @@ class AplayerLyricTag extends BaseTag {
       this.aplayerConfig.default
     );
     [settings.title, settings.author, settings.url] = options;
-    const optionalArgs = options.slice(3);
+    var optionalArgs = options.slice(3);
     optionalArgs.forEach((option, index) => {
       switch (true) {
         case option === "narrow":
