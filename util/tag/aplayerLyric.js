@@ -1,14 +1,14 @@
-const BaseTag = require("./base"),
-  Constant = require("../constant"),
-  extractOptionValue = require("../util").extractOptionValue,
-  extractOptionKey = require("../util").extractOptionKey,
-  throwError = require("../util").throwError,
+const BaseTag = require('./base'),
+  Constant = require('../constant'),
+  extractOptionValue = require('../util').extractOptionValue,
+  extractOptionKey = require('../util').extractOptionKey,
+  throwError = require('../util').throwError,
   APLAYER_TAG_OPTION = Constant.APLAYER_TAG_OPTION;
 
 class AplayerLyricTag extends BaseTag {
   constructor(hexo, args, lyrics) {
     super(hexo, args);
-    this.aplayerConfig = this.config.get("aplayer");
+    this.aplayerConfig = this.config.get('aplayer');
     this.lyrics = lyrics;
     this.settings = this.parse(args);
   }
@@ -23,14 +23,14 @@ class AplayerLyricTag extends BaseTag {
     var optionalArgs = options.slice(3);
     optionalArgs.forEach((option, index) => {
       switch (true) {
-        case option === "narrow":
+        case option === 'narrow':
           settings.narrow = true;
           break;
-        case option === "autoplay":
+        case option === 'autoplay':
           settings.autoplay = true;
           break;
-        case option.startsWith("width"):
-          settings.width = extractOptionValue(option) + ";";
+        case option.startsWith('width'):
+          settings.width = extractOptionValue(option) + ';';
           break;
         case index === 0:
           settings.pic = option;
@@ -41,7 +41,7 @@ class AplayerLyricTag extends BaseTag {
           );
       }
     });
-    settings.width = settings.narrow ? "" : settings.width;
+    settings.width = settings.narrow ? '' : settings.width;
     return settings;
   }
 
@@ -64,9 +64,16 @@ class AplayerLyricTag extends BaseTag {
         otherSettings += `${key}: ${otherSettings[key]},`;
       }
     }
+
+    let assets = this.aplayerConfig.inject
+      ? `
+        <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
+        <script src="${this.aplayerConfig.cdn}"></script>
+      `
+      : ``;
+
     return `
-                <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
-                <script src="${this.aplayerConfig.cdn}"></script>
+                ${assets}
                 <div id="${this.tagId}" style="margin-bottom: 20px; width: ${width}">
                     <pre class="aplayer-lrc-content">${this.lyrics}</pre>
                 </div>

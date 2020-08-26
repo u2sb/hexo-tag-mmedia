@@ -1,13 +1,13 @@
-const BaseTag = require("./base"),
-  Constant = require("../constant"),
-  extractOptionValue = require("../util").extractOptionValue,
-  throwError = require("../util").throwError,
+const BaseTag = require('./base'),
+  Constant = require('../constant'),
+  extractOptionValue = require('../util').extractOptionValue,
+  throwError = require('../util').throwError,
   ARTPLATER_TAG_OPTION = Constant.ARTPLATER_TAG_OPTION;
 
 class ArtPlayerTag extends BaseTag {
   constructor(hexo, args) {
     super(hexo, args);
-    this.artplayerConfig = this.config.get("artplayer");
+    this.artplayerConfig = this.config.get('artplayer');
     this.settings = this.parse(args);
   }
 
@@ -19,98 +19,98 @@ class ArtPlayerTag extends BaseTag {
     );
     options.forEach((option, index) => {
       switch (true) {
-        case option.startsWith("url:"):
+        case option.startsWith('url:'):
           settings.url = extractOptionValue(option);
           break;
-        case option.startsWith("pic:"):
+        case option.startsWith('pic:'):
           settings.pic = extractOptionValue(option);
           break;
-        case option.startsWith("thumbnails:"):
+        case option.startsWith('thumbnails:'):
           settings.thumbnails = extractOptionValue(option);
           break;
-        case option.startsWith("type:"):
+        case option.startsWith('type:'):
           settings.type = extractOptionValue(option);
           break;
 
-        case option.startsWith("id:"):
+        case option.startsWith('id:'):
           settings.id = extractOptionValue(option);
           break;
-        case option.startsWith("api:"):
+        case option.startsWith('api:'):
           settings.api = extractOptionValue(option);
           break;
-        case option.startsWith("token:"):
+        case option.startsWith('token:'):
           settings.token = extractOptionValue(option);
           break;
-        case option.startsWith("maximum:"):
+        case option.startsWith('maximum:'):
           settings.maximum = extractOptionValue(option);
           break;
-        case option.startsWith("user:"):
+        case option.startsWith('user:'):
           settings.user = extractOptionValue(option);
           break;
-        case option.startsWith("bottom:"):
+        case option.startsWith('bottom:'):
           settings.bottom = extractOptionValue(option);
           break;
-        case option === "unlimited":
+        case option === 'unlimited':
           settings.unlimited = true;
           break;
-        case option.startsWith("addition:"):
+        case option.startsWith('addition:'):
           settings.addition.push(extractOptionValue(option));
           break;
 
-        case option.startsWith("suburl:"):
+        case option.startsWith('suburl:'):
           settings.suburl = extractOptionValue(option);
           break;
-        case option.startsWith("subtype:"):
+        case option.startsWith('subtype:'):
           settings.subtype = extractOptionValue(option);
           break;
-        case option.startsWith("subbottom:"):
+        case option.startsWith('subbottom:'):
           settings.subbottom = extractOptionValue(option);
           break;
-        case option.startsWith("subfontSize:"):
+        case option.startsWith('subfontSize:'):
           settings.subfontSize = extractOptionValue(option);
           break;
-        case option.startsWith("subcolor:"):
+        case option.startsWith('subcolor:'):
           settings.subcolor = extractOptionValue(option);
           break;
 
-        case option === "autoplay":
+        case option === 'autoplay':
           settings.autoplay = true;
           break;
-        case option === "loop":
+        case option === 'loop':
           settings.loop = true;
           break;
-        case option === "screenshot":
+        case option === 'screenshot':
           settings.screenshot = true;
           break;
-        case option === "hotkey":
+        case option === 'hotkey':
           settings.hotkey = true;
           break;
-        case option === "mutex":
+        case option === 'mutex':
           settings.mutex = true;
           break;
-        case option.startsWith("theme:"):
+        case option.startsWith('theme:'):
           settings.theme = extractOptionValue(option);
           break;
-        case option.startsWith("lang:"):
+        case option.startsWith('lang:'):
           settings.lang = extractOptionValue(option);
           break;
-        case option.startsWith("preload:"):
+        case option.startsWith('preload:'):
           settings.preload = extractOptionValue(option);
           break;
-        case option.startsWith("logo:"):
+        case option.startsWith('logo:'):
           settings.logo = extractOptionValue(option);
           break;
-        case option.startsWith("volume:"):
+        case option.startsWith('volume:'):
           settings.volume = extractOptionValue(option);
           break;
-        case option.startsWith("contextmenu:"):
+        case option.startsWith('contextmenu:'):
           settings.contextmenu.push(extractOptionValue(option));
           break;
-        case option.startsWith("highlight:"):
+        case option.startsWith('highlight:'):
           settings.highlight.push(extractOptionValue(option));
           break;
 
-        case option.startsWith("code:"):
+        case option.startsWith('code:'):
           settings.code = extractOptionValue(option);
           break;
 
@@ -157,31 +157,45 @@ class ArtPlayerTag extends BaseTag {
 
     let customType,
       dankamu,
-      subtitle = "";
+      subtitle = '';
 
-    let tag = "";
-    tag += `<link rel="stylesheet" href="${this.artplayerConfig.style_cdn}">`;
+    let tag = '';
+
+    if (this.artplayerConfig.inject) {
+      tag += `<link rel="stylesheet" href="${this.artplayerConfig.style_cdn}">`;
+    }
+
     tag += `<div id="artplayer-app"></div>`;
-    tag += `<script src="${this.artplayerConfig.cdn}"></script>`;
+
+    if (this.artplayerConfig.inject) {
+      tag += `<script src="${this.artplayerConfig.cdn}"></script>`;
+    }
+
     switch (type) {
-      case "hls":
-        tag += `<script src="${this.dplayerConfig.hls_cdn}"></script>`;
+      case 'hls':
+        if (this.artplayerConfig.inject) {
+          tag += `<script src="${this.dplayerConfig.hls_cdn}"></script>`;
+        }
         customType = `customType: {
           m3u8: function(video, url) {
             var hls = new Hls(); hls.loadSource(url);
             hls.attachMedia(video); 
           }}`;
         break;
-      case "dash":
-        tag += `<script src="${this.dplayerConfig.dash_cdn}"></script>`;
+      case 'dash':
+        if (this.artplayerConfig.inject) {
+          tag += `<script src="${this.dplayerConfig.dash_cdn}"></script>`;
+        }
         customType = `customType: {
           mpd: function(video, url) {
             var player = dashjs.MediaPlayer().create();
             player.initialize(video, url, true);
           }}`;
         break;
-      case "shakaDash":
-        tag += `<script src="${this.dplayerConfig.shaka_dash_cdn}"></script>`;
+      case 'shakaDash':
+        if (this.artplayerConfig.inject) {
+          tag += `<script src="${this.dplayerConfig.shaka_dash_cdn}"></script>`;
+        }
         customType = `customType: {
           mpd: function(video, url) {
             shaka.polyfill.installAll();
@@ -189,8 +203,10 @@ class ArtPlayerTag extends BaseTag {
             player.load(url);
           }},`;
         break;
-      case "flv":
-        tag += `<script src="${this.dplayerConfig.flv_cdn}"></script>`;
+      case 'flv':
+        if (this.artplayerConfig.inject) {
+          tag += `<script src="${this.dplayerConfig.flv_cdn}"></script>`;
+        }
         customType = `customType: {
           flv: function(video, url) {
             const flvPlayer = flvjs.createPlayer({
@@ -201,8 +217,10 @@ class ArtPlayerTag extends BaseTag {
             flvPlayer.load();
           }}`;
         break;
-      case "webtorrent":
-        tag += `<script src="${this.dplayerConfig.webtorrent_cdn}"></script>`;
+      case 'webtorrent':
+        if (this.artplayerConfig.inject) {
+          tag += `<script src="${this.dplayerConfig.webtorrent_cdn}"></script>`;
+        }
         customType = `customType: {
           torrent: function(video, url, art) {
             var client = new WebTorrent();
@@ -218,12 +236,12 @@ class ArtPlayerTag extends BaseTag {
     }
 
     subtitle =
-      suburl == null || suburl == ""
-        ? ""
+      suburl == null || suburl == ''
+        ? ''
         : `subtitle: { url: '${suburl}', type: '${subtype}', fontSize: '${subfontSize}', bottom: '${subbottom}', color: '${subcolor}'},`;
     dankamu =
-      id == null || id == ""
-        ? "{}"
+      id == null || id == ''
+        ? '{}'
         : `danmaku: {id: '${id}', api: '${api}', token: '${token}', maximum: '${maximum}', addition: ${JSON.stringify(
             addition
           )}, user: '${user}', bottom: '${bottom}', unlimited: '${unlimited}'},`;
@@ -236,7 +254,7 @@ class ArtPlayerTag extends BaseTag {
             theme: '${theme}',
             loop: ${loop},
             lang: ${
-              lang == null || lang == "" ? "navigator.language" : `'${lang}'`
+              lang == null || lang == '' ? 'navigator.language' : `'${lang}'`
             },
             screenshot: ${screenshot},
             hotkey: ${hotkey},
@@ -253,7 +271,7 @@ class ArtPlayerTag extends BaseTag {
                 : "[{text: 'hexo-tag-mmedia', link: 'https://github.com/MonoLogueChi/hexo-tag-mmedia'}]"
             },
             highlight: ${
-              highlight.length > 0 ? JSON.stringify(highlight) : "[]"
+              highlight.length > 0 ? JSON.stringify(highlight) : '[]'
             }
         });
         ${code}

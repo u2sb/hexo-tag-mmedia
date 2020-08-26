@@ -1,14 +1,14 @@
-const BaseTag = require("./base"),
-  Constant = require("../constant"),
-  extractOptionValue = require("../util").extractOptionValue,
-  extractOptionKey = require("../util").extractOptionKey,
-  throwError = require("../util").throwError,
+const BaseTag = require('./base'),
+  Constant = require('../constant'),
+  extractOptionValue = require('../util').extractOptionValue,
+  extractOptionKey = require('../util').extractOptionKey,
+  throwError = require('../util').throwError,
   APLAYER_TAG_OPTION = Constant.APLAYER_TAG_OPTION;
 
 class AplayerTag extends BaseTag {
   constructor(hexo, args) {
     super(hexo, args);
-    this.aplayerConfig = this.config.get("aplayer");
+    this.aplayerConfig = this.config.get('aplayer');
     this.settings = this.parse(args);
   }
 
@@ -22,18 +22,18 @@ class AplayerTag extends BaseTag {
     const optionalArgs = options.slice(3);
     optionalArgs.forEach((option, index) => {
       switch (true) {
-        case option === "narrow":
+        case option === 'narrow':
           settings.narrow = true;
           break;
-        case option === "autoplay":
+        case option === 'autoplay':
           settings.autoplay = true;
           break;
-        case option.startsWith("lrc:"):
+        case option.startsWith('lrc:'):
           settings.lrcOption = 3;
           settings.lrcPath = extractOptionValue(option);
           break;
-        case option.startsWith("width"):
-          settings.width = extractOptionValue(option) + ";";
+        case option.startsWith('width'):
+          settings.width = extractOptionValue(option) + ';';
           break;
         case index === 0:
           settings.pic = option;
@@ -44,7 +44,7 @@ class AplayerTag extends BaseTag {
           );
       }
     });
-    settings.width = settings.narrow ? "" : settings.width;
+    settings.width = settings.narrow ? '' : settings.width;
     return settings;
   }
 
@@ -69,9 +69,15 @@ class AplayerTag extends BaseTag {
       }
     }
 
+    let assets = this.aplayerConfig.inject
+      ? `
+        <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
+        <script src="${this.aplayerConfig.cdn}"></script>
+      `
+      : ``;
+
     return `
-            <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
-            <script src="${this.aplayerConfig.cdn}"></script>
+            ${assets}
             <div id="${this.tagId}" style="margin-bottom: 20px; width: ${width}"></div>
         <script>
           var ap_${this.mmediaId} = new APlayer({

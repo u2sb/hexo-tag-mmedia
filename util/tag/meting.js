@@ -1,16 +1,16 @@
-const BaseTag = require("./base"),
-  Constant = require("../constant"),
-  extractOptionValue = require("../util").extractOptionValue,
-  extractOptionKey = require("../util").extractOptionKey,
-  throwError = require("../util").throwError,
+const BaseTag = require('./base'),
+  Constant = require('../constant'),
+  extractOptionValue = require('../util').extractOptionValue,
+  extractOptionKey = require('../util').extractOptionKey,
+  throwError = require('../util').throwError,
   METING_TAG_OPTION = Constant.METING_TAG_OPTION,
   METING_TAG_OPTION_AUTO = Constant.METING_TAG_OPTION_AUTO;
 
 class MetingTag extends BaseTag {
   constructor(hexo, args) {
     super(hexo, args);
-    this.metingConfig = this.config.get("meting");
-    this.aplayerConfig = this.config.get("aplayer");
+    this.metingConfig = this.config.get('meting');
+    this.aplayerConfig = this.config.get('aplayer');
     this.settings = this.parse(args);
   }
 
@@ -45,43 +45,43 @@ class MetingTag extends BaseTag {
     let settings = {};
     optionalArgs.forEach((option, index) => {
       switch (true) {
-        case option === "autoplay":
+        case option === 'autoplay':
           settings.autoplay = true;
           break;
-        case option === "fixed":
+        case option === 'fixed':
           settings.fixed = true;
           break;
-        case option === "mini":
+        case option === 'mini':
           settings.mini = true;
           break;
-        case option.startsWith("loop:"):
+        case option.startsWith('loop:'):
           settings.loop = extractOptionValue(option);
           break;
-        case option.startsWith("order:"):
+        case option.startsWith('order:'):
           settings.order = extractOptionValue(option);
           break;
-        case option.startsWith("volume:"):
+        case option.startsWith('volume:'):
           settings.volume = extractOptionValue(option);
           break;
-        case option.startsWith("lrctype:"):
+        case option.startsWith('lrctype:'):
           settings.lrctype = extractOptionValue(option);
           break;
-        case option === "listfolded":
+        case option === 'listfolded':
           settings.listfolded = true;
           break;
-        case option.startsWith("storagename:"):
+        case option.startsWith('storagename:'):
           settings.storagename = extractOptionValue(option);
           break;
-        case option.startsWith("mutex:"):
-          settings.mutex = extractOptionValue(option) === "true";
+        case option.startsWith('mutex:'):
+          settings.mutex = extractOptionValue(option) === 'true';
           break;
-        case option.startsWith("listmaxheight:"):
+        case option.startsWith('listmaxheight:'):
           settings.listmaxheight = extractOptionValue(option);
           break;
-        case option.startsWith("preload:"):
+        case option.startsWith('preload:'):
           settings.preload = extractOptionValue(option);
           break;
-        case option.startsWith("theme:"):
+        case option.startsWith('theme:'):
           settings.theme = extractOptionValue(option);
           break;
         default:
@@ -92,7 +92,7 @@ class MetingTag extends BaseTag {
   }
 
   generate() {
-    let settingLiteral = "";
+    let settingLiteral = '';
     Object.entries(this.settings).forEach(([key, value]) => {
       settingLiteral += ` ${key}="${value}"`;
     });
@@ -100,12 +100,17 @@ class MetingTag extends BaseTag {
     let result =
       this.metingConfig.api != null && this.metingConfig.api.length > 0
         ? `<script>var meting_api='${this.metingConfig.api}?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script>`
-        : "";
-    result += `
+        : '';
+
+    if (this.metingConfig.inject) {
+      result += `
             <link rel="stylesheet" href="${this.aplayerConfig.style_cdn}">
             <script src="${this.aplayerConfig.cdn}"></script>
             <script src="${this.metingConfig.cdn}"></script>
-            <meting-js ${settingLiteral}></meting-js>`;
+            `;
+    }
+
+    result += `<meting-js ${settingLiteral}></meting-js>`;
     return result;
   }
 }

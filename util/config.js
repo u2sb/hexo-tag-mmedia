@@ -1,41 +1,45 @@
-const clone = require("./util").clone;
+const clone = require('./util').clone;
 
 class Config {
   constructor(hexo) {
     this.hexo = hexo;
-    this.root = hexo.config.root ? hexo.config.root : "/";
+    this.root = hexo.config.root ? hexo.config.root : '/';
     this.config = {
       meting: {
-        cdn: "https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js",
+        inject: true,
+        cdn: 'https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js',
         api: null,
         default: {},
       },
       aplayer: {
-        cdn: "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js",
-        style_cdn: "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css",
+        inject: true,
+        cdn: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js',
+        style_cdn: 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css',
         default: {},
       },
       dplayer: {
-        cdn: "https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js",
-        hls_cdn: "https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js",
-        dash_cdn: "https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js",
+        inject: true,
+        cdn: 'https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js',
+        hls_cdn: 'https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js',
+        dash_cdn: 'https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js',
         shaka_dash_cdn:
-          "https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js",
-        flv_cdn: "https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js",
+          'https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js',
+        flv_cdn: 'https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js',
         webtorrent_cdn:
-          "https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js",
+          'https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js',
         default: {},
       },
       artplayer: {
-        cdn: "https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js",
-        style_cdn: "https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.css",
-        hls_cdn: "https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js",
-        dash_cdn: "https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js",
+        inject: true,
+        cdn: 'https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js',
+        style_cdn: 'https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.css',
+        hls_cdn: 'https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js',
+        dash_cdn: 'https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js',
         shaka_dash_cdn:
-          "https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js",
-        flv_cdn: "https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js",
+          'https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js',
+        flv_cdn: 'https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js',
         webtorrent_cdn:
-          "https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js",
+          'https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js',
         default: {},
       },
       bilibili: {
@@ -49,16 +53,16 @@ class Config {
 
   _parse(source) {
     if (source.aplayer) {
-      this.set("aplayer", source.aplayer);
+      this.set('aplayer', source.aplayer);
     }
     if (source.meting) {
-      this.set("meting", source.meting);
+      this.set('meting', source.meting);
     }
     if (source.dplayer) {
-      this.set("dplayer", source.dplayer);
+      this.set('dplayer', source.dplayer);
     }
     if (source.bilibili) {
-      this.set("bilibili", source.bilibili);
+      this.set('bilibili', source.bilibili);
     }
   }
 
