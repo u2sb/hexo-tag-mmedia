@@ -26,6 +26,9 @@ class Config {
           "https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js",
         default: {},
       },
+      ixigua: {
+        default: {},
+      },
       bilibili: {
         default: {},
       },

@@ -3,8 +3,9 @@
 const MetingTag = require("./util/tag/meting"),
   AplayerTag = require("./util/tag/aplayer"),
   AplayerLrcTag = require("./util/tag/aplayerLyric"),
-  APlayerListTag = require("./util/tag/aplayerList"),
-  DPlayerTag = require("./util/tag/dplayer"),
+  AplayerListTag = require("./util/tag/aplayerList"),
+  DplayerTag = require("./util/tag/dplayer"),
+  IXiGuaTag = require("./util/tag/ixigua"),
   BilibiliTag = require("./util/tag/bilibili");
 
 hexo.extend.tag.register("meting", function (args) {
@@ -54,7 +55,7 @@ hexo.extend.tag.register(
   "aplayerlist",
   function (args, content) {
     try {
-      let aplayer = new APlayerListTag(hexo, content);
+      let aplayer = new AplayerListTag(hexo, content);
       return aplayer.generate();
     } catch (e) {
       console.error(e);
@@ -69,7 +70,7 @@ hexo.extend.tag.register(
 
 hexo.extend.tag.register("dplayer", function (args) {
   try {
-    let dplayer = new DPlayerTag(hexo, args);
+    let dplayer = new DplayerTag(hexo, args);
     return dplayer.generate();
   } catch (e) {
     console.error(e);
@@ -84,6 +85,19 @@ hexo.extend.tag.register("bilibili", function (args) {
   try {
     let bplayer = new BilibiliTag(hexo, args);
     return bplayer.generate();
+  } catch (e) {
+    console.error(e);
+    return `
+			<script>
+				console.error("${e}");
+			</script>`;
+  }
+});
+
+hexo.extend.tag.register("ixigua", function (args) {
+  try {
+    let xplayer = new IXiGuaTag(hexo, args);
+    return xplayer.generate();
   } catch (e) {
     console.error(e);
     return `

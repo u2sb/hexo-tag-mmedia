@@ -61,7 +61,7 @@ exports.DPLAYER_TAG_OPTION = {
   mutex: true,
   highlight: [],
   contextmenu: [],
-  code: '',
+  code: "",
 };
 
 exports.BILIBILI_TAG_OPTION = {
@@ -70,6 +70,17 @@ exports.BILIBILI_TAG_OPTION = {
   page: 1,
   quality: "low",
   danmaku: false,
+  allowfullscreen: "allowfullscreen",
+  width: "100%",
+  max_width: "850px",
+  margin: "auto",
+};
+
+exports.IXIGUA_TAG_OPTION = {
+  xid: null,
+  id: null,
+  autoplay: false,
+  startTime: 0,
   allowfullscreen: "allowfullscreen",
   width: "100%",
   max_width: "850px",
