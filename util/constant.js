@@ -64,11 +64,6 @@ exports.DPLAYER_TAG_OPTION = {
   code: '',
 };
 
-exports.ARTPLATER_TAG_OPTION = {
-  url: "",
-  type: "",
-};
-
 exports.BILIBILI_TAG_OPTION = {
   aid: null,
   bvid: null,

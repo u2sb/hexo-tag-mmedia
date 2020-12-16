@@ -7,6 +7,7 @@ hexo媒体插入插件
 - [Aplayer](https://github.com/DIYgod/APlayer)
 - [Meting](https://github.com/metowolf/MetingJS)
 - [Dplayer](https://github.com/DIYgod/DPlayer)
+- [西瓜视频](https://www.ixigua.com/)
 - [BiliBili](https://www.bilibili.com/)
 - 更多平台后续会有更新...
 
