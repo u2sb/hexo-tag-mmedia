@@ -28,6 +28,9 @@ class IXiGuaTag extends BaseTag {
         case option.startsWith("autoplay:"):
           settings.autoplay = extractOptionValue(option);
           break;
+        case option === "autoplay":
+          settings.autoplay = true;
+          break;
         case option.startsWith("startTime:"):
           settings.startTime = extractOptionValue(option);
           break;
@@ -61,14 +64,14 @@ class IXiGuaTag extends BaseTag {
     } = this.settings;
     return `
         <style>.xgplayer{width: ${width}; max-width: ${max_width}; height: ${
-            Math.min(width, max_width) * 0.7
-        }; margin: ${margin}}</style>
+      Math.min(width, max_width) * 0.7
+    }; margin: ${margin}}</style>
         <div class="xgplayer">
         <iframe class="xgplayer" id="${
           this.tagId
         }" src="//www.ixigua.com/iframe/${xid}?${
-            id == null || id == "" ? "" : "id=" + id + "&"
-        }autoplay=${autoplay ? 1 : 0}&startTime=${startTime}"
+      id == null || id == "" ? "" : "id=" + id + "&"
+    }autoplay=${autoplay ? 1 : 0}&startTime=${startTime}"
             allowfullscreen="${
               allowfullscreen == "allowfullscreen" || allowfullscreen == "true"
                 ? "allowfullscreen"
@@ -79,9 +82,17 @@ class IXiGuaTag extends BaseTag {
         </div>
 
         <script>
-            document.getElementById("${this.tagId}").style.height=document.getElementById("${this.tagId}").scrollWidth\*0.7+"px";
+            document.getElementById("${
+              this.tagId
+            }").style.height=document.getElementById("${
+      this.tagId
+    }").scrollWidth\*0.7+"px";
             window.onresize = function(){
-              document.getElementById("${this.tagId}").style.height=document.getElementById("${this.tagId}").scrollWidth\*0.7+"px";
+              document.getElementById("${
+                this.tagId
+              }").style.height=document.getElementById("${
+      this.tagId
+    }").scrollWidth\*0.7+"px";
             };
         </script>
         `;

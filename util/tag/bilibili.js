@@ -34,6 +34,9 @@ class BiliBiliTag extends BaseTag {
         case option.startsWith("quality:"):
           settings.quality = extractOptionValue(option);
           break;
+        case option.startsWith("danmaku:"):
+          settings.danmaku = extractOptionValue(option);
+          break;
         case option === "danmaku":
           settings.danmaku = true;
           break;
@@ -70,7 +73,9 @@ class BiliBiliTag extends BaseTag {
     return `
         <style>.bbplayer{width: ${width}; max-width: ${max_width}; margin: ${margin}}</style>
         <div class="bbplayer">
-        <iframe class="bbplayer" id="${this.tagId}" src="//player.bilibili.com/player.html?${id}&page=${page}&high_quality=${
+        <iframe class="bbplayer" id="${
+          this.tagId
+        }" src="//player.bilibili.com/player.html?${id}&page=${page}&high_quality=${
       quality == "high" ? 1 : 0
     }&danmaku=${danmaku}"
             allowfullscreen="${
@@ -81,9 +86,17 @@ class BiliBiliTag extends BaseTag {
             scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups"></iframe>
         </div>
         <script>
-            document.getElementById("${this.tagId}").style.height=document.getElementById("${this.tagId}").scrollWidth\*0.76+"px";
+            document.getElementById("${
+              this.tagId
+            }").style.height=document.getElementById("${
+      this.tagId
+    }").scrollWidth\*0.76+"px";
             window.onresize = function(){
-              document.getElementById("${this.tagId}").style.height=document.getElementById("${this.tagId}").scrollWidth\*0.76+"px";
+              document.getElementById("${
+                this.tagId
+              }").style.height=document.getElementById("${
+      this.tagId
+    }").scrollWidth\*0.76+"px";
             };
         </script>
         `;
