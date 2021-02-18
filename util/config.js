@@ -17,7 +17,7 @@ class Config {
       },
       dplayer: {
         cdn: "https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js",
-        hls_cdn: "https://cdn.jsdelivr.net/npm/hls.j/dist/hls.min.js",
+        hls_cdn: "https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js",
         dash_cdn: "https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js",
         shaka_dash_cdn:
           "https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js",
