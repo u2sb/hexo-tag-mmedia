@@ -13,7 +13,7 @@ hexo媒体插入插件
 
 ## 文档
 
-[https://www.u2sb.top/docs/hexo-tag-mmedia/](https://www.u2sb.top/docs/hexo-tag-mmedia/)
+[https://www.u2sb.com/docs/hexo-tag-mmedia/](https://www.u2sb.com/docs/hexo-tag-mmedia/)
 
 > BiliBili平台已支持 bvid 方式
 
