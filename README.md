@@ -1,49 +1,44 @@
-# hexo-tag-aplayer-scripts
+# hexo-tag-mmedia
 
-使用脚本插入[Aplayer](https://github.com/MoePlayer/APlayer)标签。
+hexo 媒体插入插件
 
-因为[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)太久没更新了，就自己造轮子，感觉实用性还可以，就打算开源再完善一下。
+## 版本说明
 
-## 存在的问题
+目前版本为 `1.x`，与 `0.x` 版本完全不兼容，请勿直接从 `0.x` 版本升级，以后 `0.x` 版本会单独维护，但不会增加新功能。
 
-因为以前是使用[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)，所以计划是要完全兼容，但是在设计的时候发现hexo-tag-aplayer本身也不是那么完美，正在考虑是否要做成完全兼容的，还是进一步改进，所以有一部分现在还没做，只实现了我自己用的那一部分。
+解释一下为什么要升级到 1.x 版本，0.x 版本开发的时候受到 `hexo-tag-dplayer` 和 `hexo-tag-aplayer` 影响较大，为了兼容配置方式做了很多妥协，越到后面维护起来越麻烦，决定开发 1.x 版本，推翻重来。
 
-使用metingJS的话，能完美兼容，无痛迁移，但是使用aplayer的话，目前还没做好，有些参数会失效（还没想好怎么设计），如果使用aplayer的话，暂时先不要上生产环境。
+## 使用说明
 
-## 使用方法
+见文档 https://www.u2sb.com/docs/hexo-tag-mmedia/
 
-下载`hexo-tag-aplayer.js`到hexo根目录的`scripts`文件夹。详细请看[Hexo文档](https://hexo.io/zh-cn/docs/plugins#%E8%84%9A%E6%9C%AC%EF%BC%88Scripts%EF%BC%89)。
+## 支持平台
 
-### _config.yml
+完整列表见相关文档
 
-可以完全继承hexo-tag-aplayer：
-
-```yaml
-aplayer:
-  cdn: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js  # 引用 APlayer.js CDN 地址 (默认不需要填写)
-  style_cdn: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css  # 引用 APlayer.css CDN 地址 (默认不需要填写)
-  meting_cdn: https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js  # 引用 metingJS CDN 地址 (默认不需要填写)
-  meting_api: https://api.i-meto.com/meting/api  # 引用 metingJS api 地址 (默认不需要填写)
-```
-
-### MetingJS(推荐)
-
-```
-{% meting "60198" "netease" "playlist" %}
-
-{% meting "auto:https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html" %}
-
-{% meting "60198" "netease" "playlist" "autoplay:false" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%}
-```
-
-其他参数见：[MetingJS参数](https://github.com/metowolf/MetingJS#option)，所有参数均可写为`key:value`形式
-
-### Aplayer
-
-目前兼容还不完美（主要是我自己不怎么用，没有什么动力去搞）。具体兼容情况还没测试，而且以后肯定要改，这部分文档先不写了。
+- [Aplayer](https://github.com/DIYgod/APlayer)
+- [Meting](https://github.com/metowolf/MetingJS)
+- [Dplayer](https://github.com/DIYgod/DPlayer)
+- [西瓜视频](https://www.ixigua.com/)
+- [BiliBili](https://www.bilibili.com/)
+- 更多平台后续会有更新...
 
 ## 反馈
 
-如果有什么问题吗，请尽可能详细写在issue中。
+如果有什么问题吗，请尽可能详细写在 [issue](https://github.com/u2sb/hexo-tag-mmedia/issues) 中。
 
-> 不会写JS，有问题也不一定能解决。
+## QQ 群
+
+159891059
+
+![](https://s2.ax1x.com/2020/02/14/1jAh1U.png)
+
+## 参考
+
+[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)
+[hexo-tag-dplayer](https://github.com/MoePlayer/hexo-tag-dplayer)
+[hexo-tag-cplayer](https://github.com/EYHN/hexo-tag-cplayer)
+
+## 开源协议
+
+[MIT](https://github.com/u2sb/hexo-tag-mmedia/blob/1.x/LICENSE) © MonoLogueChi

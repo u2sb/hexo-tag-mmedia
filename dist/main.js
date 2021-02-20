@@ -1,0 +1,1 @@
+const mmedia=require("./lib/mmedia");hexo.extend.tag.register("mmedia",function(e,i){return mmedia(hexo,e,i)});
