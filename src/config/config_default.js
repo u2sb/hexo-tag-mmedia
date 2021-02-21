@@ -1,5 +1,9 @@
 module.exports = {
   "config_default": {
+    "assets": {
+      "js": "/assets/js/",
+      "css": "/assets/css/"
+    },
     "audio": {
       "default": null
     },
@@ -7,12 +11,12 @@ module.exports = {
       "default": null
     },
     "aplayer": {
-      "js": "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js",
-      "css": "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css",
+      "js": null,
+      "css": null,
       "default": null
     },
     "meting": {
-      "js": "https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js",
+      "js": null,
       "api": null,
       "default": null
     },

@@ -1,14 +1,17 @@
 config_default:
+  assets:
+    js: /assets/js/
+    css: /assets/css/
   audio:
     default:
   video:
     default:
   aplayer:
-    js: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js
-    css: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css
+    js: 
+    css: 
     default:
   meting:
-    js: https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js
+    js: 
     api:
     default:
   dplayer:

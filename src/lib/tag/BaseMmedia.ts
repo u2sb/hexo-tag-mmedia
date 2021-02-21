@@ -2,11 +2,14 @@ abstract class BaseMmedia {
   hexo: any;
   config: Config;
   args: string[];
+  contents: JSON = JSON.parse("{}");
   constructor(hexo: any, args: string[], contents: any) {
     this.hexo = hexo;
-    this.args = args;    
+    this.args = args;
     this.config = new Config(hexo);
-    
+    if (contents) {
+      this.contents = JSON.parse(contents);
+    }
   }
 
   generate(): string {
