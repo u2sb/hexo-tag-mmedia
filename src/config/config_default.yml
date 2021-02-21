@@ -1,4 +1,8 @@
 config_default:
+  audio:
+    default:
+  video:
+    default:
   aplayer:
     js: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js
     css: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css

@@ -35,8 +35,8 @@ hexo 媒体插入插件
 
 ## 参考
 
-[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)
-[hexo-tag-dplayer](https://github.com/MoePlayer/hexo-tag-dplayer)
+[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)  
+[hexo-tag-dplayer](https://github.com/MoePlayer/hexo-tag-dplayer)  
 [hexo-tag-cplayer](https://github.com/EYHN/hexo-tag-cplayer)
 
 ## 开源协议

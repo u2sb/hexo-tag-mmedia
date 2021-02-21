@@ -1,5 +1,11 @@
 module.exports = {
   "config_default": {
+    "audio": {
+      "default": null
+    },
+    "video": {
+      "default": null
+    },
     "aplayer": {
       "js": "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js",
       "css": "https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css",
