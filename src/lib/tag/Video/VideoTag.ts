@@ -2,8 +2,8 @@ class VideoTag extends BaseTag {
   result: string;
   config: VideoConfig;
 
-  constructor(config: VideoConfig) {
-    super(config);
+  constructor(hexo: any, config: VideoConfig) {
+    super(hexo, config);
     this.config = config;
     this.result = "";
   }

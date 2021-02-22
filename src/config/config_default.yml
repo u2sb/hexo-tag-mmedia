@@ -10,6 +10,7 @@ config_default:
     js: 
     css: 
     default:
+      contents:
   meting:
     js: 
     api:
@@ -22,3 +23,4 @@ config_default:
     flv_js: https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js
     webtorrent_js: https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js
     default:
+      contents:

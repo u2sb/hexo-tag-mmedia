@@ -13,6 +13,6 @@ class Video extends BaseMmedia {
         this.video_config.data[a[0]] = a[1];
       }
     });
-    return new VideoTag(this.video_config).generate();
+    return new VideoTag(this.hexo, this.video_config).generate();
   }
 }

@@ -20,18 +20,29 @@ abstract class BaseMmedia {
     let a = pair.indexOf(":");
     let b = pair.indexOf("=");
 
-    if (a > b) {
-      return [
-        pair.slice(0, pair.indexOf(":")),
-        pair.slice(pair.indexOf(":") + 1),
-      ];
-    } else if (a < b) {
+    if (a == -1) {
       return [
         pair.slice(0, pair.indexOf("=")),
         pair.slice(pair.indexOf("=") + 1),
       ];
+    } else if (b == -1) {
+      return [
+        pair.slice(0, pair.indexOf(":")),
+        pair.slice(pair.indexOf(":") + 1),
+      ];
+    } else {
+      if (a < b) {
+        return [
+          pair.slice(0, pair.indexOf(":")),
+          pair.slice(pair.indexOf(":") + 1),
+        ];
+      } else if (b < a) {
+        return [
+          pair.slice(0, pair.indexOf("=")),
+          pair.slice(pair.indexOf("=") + 1),
+        ];
+      }
     }
-
     return undefined;
   }
 }

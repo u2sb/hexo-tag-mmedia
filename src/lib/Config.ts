@@ -4,7 +4,7 @@ const clone = (object: any) => {
 
 let config_default = require("../config/config_default").config_default;
 const path = require("path");
-const log = require("hexo-log")({ name: "hexo-tag-mmedia", debug: false });
+const fs = require("hexo-fs");
 
 class Config {
   hexo: any;

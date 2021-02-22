@@ -13,7 +13,9 @@ module.exports = {
     "aplayer": {
       "js": null,
       "css": null,
-      "default": null
+      "default": {
+        "contents": null
+      }
     },
     "meting": {
       "js": null,
@@ -27,7 +29,9 @@ module.exports = {
       "shaka_dash_js": "https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js",
       "flv_js": "https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js",
       "webtorrent_js": "https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js",
-      "default": null
+      "default": {
+        "contents": null
+      }
     }
   }
 };

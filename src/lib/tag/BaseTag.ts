@@ -1,16 +1,25 @@
 abstract class BaseTag {
   mmedia_id: string;
   tag_id: string;
+  hexo: any;
+  css: any;
+  js: any;
   protected abstract config: BaseConfig;
-  constructor(config: BaseConfig) {
-    this.mmedia_id = utils.randomString(12);
+  constructor(hexo: any, config: BaseConfig) {
+    this.mmedia_id = utils.randomString(
+      16,
+      "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+    );
     this.tag_id = `mmedia-${this.mmedia_id}`;
+    this.hexo = hexo;
+    this.css = hexo.extend.helper.get("css").bind(hexo);
+    this.js = hexo.extend.helper.get("js").bind(hexo);
   }
-  parse(options: { [key: string]: string }): string {
+  parse(options: { [key: string]: any }): string {
     let data = "";
     for (let val in options) {
       if (val != "" && val != null) {
-        if (options[val]) {
+        if (options[val] != "" && options[val] != null) {
           if (
             options[val] === "true" ||
             options[val] === "false" ||
@@ -26,5 +35,9 @@ abstract class BaseTag {
       }
     }
     return data;
+  }
+
+  injector(entry: string, value: string | Function, to?: string) {
+    this.hexo.extend.injector.register(entry, value, to);
   }
 }

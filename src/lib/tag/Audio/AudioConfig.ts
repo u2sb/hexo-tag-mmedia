@@ -1,3 +1,3 @@
 class AudioConfig extends BaseConfig {
-  data: { [key: string]: string } = config_default.audio.default || {};
+  data: { [key: string]: string | number | boolean | JSON } = config_default.audio.default || {};
 }

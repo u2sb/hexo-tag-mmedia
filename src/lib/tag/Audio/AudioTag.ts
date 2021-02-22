@@ -2,8 +2,8 @@ class AudioTag extends BaseTag {
   result: string;
   config: AudioConfig;
 
-  constructor(config: AudioConfig) {
-    super(config);
+  constructor(hexo: any, config: AudioConfig) {
+    super(hexo, config);
     this.config = config;
     this.result = "";
   }

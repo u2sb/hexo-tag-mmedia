@@ -13,6 +13,6 @@ class Audio0 extends BaseMmedia {
         this.audio_config.data[a[0]] = a[1];
       }
     });
-    return new AudioTag(this.audio_config).generate();
+    return new AudioTag(this.hexo, this.audio_config).generate();
   }
 }

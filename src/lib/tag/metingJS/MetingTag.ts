@@ -2,8 +2,8 @@ class MetingTag extends BaseTag {
   result: string;
   config: MetingConfig;
 
-  constructor(config: MetingConfig) {
-    super(config);
+  constructor(hexo: any, config: MetingConfig) {
+    super(hexo, config);
     this.config = config;
     this.result = "";
   }
@@ -12,6 +12,16 @@ class MetingTag extends BaseTag {
     this.result += `<link rel="stylesheet" href="${this.config.aplayer_css}">`;
     this.result += `<script src="${this.config.aplayer_js}"></script>`;
     this.result += `<script src="${this.config.meting_js}"></script>`;
+    // this.injector("head_end", () => {
+    //   return this.css(this.config.aplayer_css);
+    // });
+    // this.injector(
+    //   "head_end",
+    //   `<script src="${this.config.aplayer_js}"></script>`
+    // );
+    // this.injector("head_end", () => {
+    //   return this.js(this.config.meting_js);
+    // });
     if (this.config.meting_api != "") {
       let apistr = `var meting_api='${this.config.meting_api}?server=:server&type=:type&id=:id&auth=:auth&r=:r';`;
       this.result += `<script> ${apistr} </script>`;
