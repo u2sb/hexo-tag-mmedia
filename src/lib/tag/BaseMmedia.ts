@@ -2,13 +2,13 @@ abstract class BaseMmedia {
   hexo: any;
   config: Config;
   args: string[];
-  contents: JSON = JSON.parse("{}");
+  contents: JSON = JSON5.parse("{}");
   constructor(hexo: any, args: string[], contents: any) {
     this.hexo = hexo;
     this.args = args;
     this.config = new Config(hexo);
     if (contents) {
-      this.contents = JSON.parse(contents);
+      this.contents = JSON5.parse(contents);
     }
   }
 

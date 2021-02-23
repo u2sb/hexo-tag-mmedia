@@ -41,4 +41,4 @@ hexo 媒体插入插件
 
 ## 开源协议
 
-[MIT](https://github.com/u2sb/hexo-tag-mmedia/blob/1.x/LICENSE) © MonoLogueChi
+[Apache-2.0](https://github.com/u2sb/hexo-tag-mmedia/blob/1.x/LICENSE) © MonoLogueChi

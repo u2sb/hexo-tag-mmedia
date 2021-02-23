@@ -1,4 +1,5 @@
 const merge = require("deepmerge");
+const JSON5 = require("json5");
 const config_default_source = require("../config/config_default")
   .config_default;
 let config_default = require("../config/config_default").config_default;
@@ -20,7 +21,7 @@ class Config {
   }
 
   clone(object: any) {
-    return JSON.parse(JSON.stringify(object));
+    return JSON5.parse(JSON5.stringify(object));
   }
 
   _parse(source: any) {

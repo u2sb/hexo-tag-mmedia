@@ -39,6 +39,15 @@ module.exports = {
         "max_width": "850px",
         "margin": "auto"
       }
+    },
+    "xigua": {
+      "default": {
+        "allowfullscreen": "allowfullscreen",
+        "sandbox": "allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups",
+        "width": "100%",
+        "max_width": "850px",
+        "margin": "auto"
+      }
     }
   }
 };

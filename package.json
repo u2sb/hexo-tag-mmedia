@@ -4,7 +4,8 @@
   "description": "A media tag for Hexo",
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -17,13 +18,16 @@
     "Aplayer",
     "Dplayer",
     "Bilibili",
+    "Xigua",
+    "西瓜",
     "Video",
     "Audio"
   ],
   "author": "MonoLogueChi",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/u2sb/hexo-tag-mmedia/issues"
+    "url": "https://github.com/u2sb/hexo-tag-mmedia/issues",
+    "email": "xxwhite@foxmail.com"
   },
   "homepage": "https://github.com/u2sb/hexo-tag-mmedia#文档",
   "devDependencies": {
@@ -44,6 +48,7 @@
   "dependencies": {
     "deepmerge": "^4.2.2",
     "hexo-log": "^2.0.0",
+    "json5": "^2.2.0",
     "utility": "^1.17.0"
   }
 }

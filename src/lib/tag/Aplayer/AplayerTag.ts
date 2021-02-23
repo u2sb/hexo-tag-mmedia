@@ -74,7 +74,7 @@ class AplayerTag extends BaseTag {
 
     let aplayer_script = `var ${
       this.mmedia_id
-    }_options = JSON.parse('${JSON.stringify(aplayer_options).replace(
+    }_options = JSON5.parse('${JSON5.stringify(aplayer_options).replace(
       /"([^"]*)"/g,
       '\\"$1\\"'
     )}'); ${this.mmedia_id}_options.container = document.getElementById("${
