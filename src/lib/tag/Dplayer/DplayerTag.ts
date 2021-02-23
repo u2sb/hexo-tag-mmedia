@@ -10,23 +10,24 @@ class DplayerTag extends BaseTag {
     this.contents = contents;
   }
 
-  a_parse(options: { [key: string]: any }) {
-    let dplayer_options: any = {};
-    let video: { [key: string]: any } = {};
+  d_parse(options: { [key: string]: any }) {
+    let dplayer_options: any = {
+      video: {},
+    };
     for (let val in options) {
       if (val != "" && val != null) {
         switch (val) {
           case "url":
-            video.url = options[val];
+            dplayer_options.video.url = options[val];
             break;
           case "pic":
-            video.pic = options[val];
+            dplayer_options.video.pic = options[val];
             break;
           case "thumbnails":
-            video.thumbnails = options[val];
+            dplayer_options.video.thumbnails = options[val];
             break;
           case "type":
-            video.type = options[val];
+            dplayer_options.video.type = options[val];
             break;
           case "autoplay":
             dplayer_options.autoplay = options[val] == "false" ? false : true;
@@ -44,31 +45,68 @@ class DplayerTag extends BaseTag {
             dplayer_options.listMaxHeight =
               options[val] == "false" ? false : true;
             break;
+          case "id":
+            dplayer_options.danmaku.id = options[val];
           default:
             break;
         }
       }
     }
-    dplayer_options.audio = [video];
     return dplayer_options;
+  }
+
+  d_js(options: { [key: string]: any }): string[] {
+    let d_js_path: string[] = [];
+
+    for (let val in options) {
+      if (val != "" && val != null) {
+        switch (val) {
+          case "hls":
+            d_js_path.push(options[val] || this.config.hls_js);
+            break;
+          case "dash":
+            d_js_path.push(options[val] || this.config.dash_js);
+            break;
+          case "shaka_dash":
+            d_js_path.push(options[val] || this.config.shaka_dash_js);
+            break;
+          case "flv":
+            d_js_path.push(options[val] || this.config.flv_js);
+            break;
+          case "webtorrent":
+            d_js_path.push(options[val] || this.config.webtorrent_js);
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    return d_js_path;
   }
 
   generate(): string {
     this.result += `<script src="${this.config.dplayer_js}"></script>`;
-    this.result += `<div id="${this.tag_id}"></div>`;
-    let data = this.config.data;
-    let aplayer_options = utils.assign(this.a_parse(data), this.contents);
 
-    let aplayer_script = `var ${
+    let data = this.config.data;
+    let dplayer_options = utils.assign(this.d_parse(data), this.contents);
+    this.d_js(data).forEach((item) => {
+      if (item && item != "" && item != null) {
+        this.result += `<script src="${item}"></script>`;
+      }
+    });
+
+    this.result += `<div id="${this.tag_id}"></div>`;
+
+    let dplayer_script = `var ${
       this.mmedia_id
-    }_options = JSON.parse('${JSON.stringify(aplayer_options).replace(
+    }_options = JSON.parse('${JSON.stringify(dplayer_options).replace(
       /"([^"]*)"/g,
       '\\"$1\\"'
     )}'); ${this.mmedia_id}_options.container = document.getElementById("${
       this.tag_id
     }"); `;
-    aplayer_script += `const ap = new APlayer(${this.mmedia_id}_options);`;
-    this.result += `<script> ${aplayer_script} </script>`;
+    dplayer_script += `const dp_${this.mmedia_id} = new DPlayer(${this.mmedia_id}_options);`;
+    this.result += `<script> ${dplayer_script} </script>`;
     return this.result;
   }
 }

@@ -12,6 +12,8 @@ module.exports = function (hexo: any, args: string[], contents: any) {
       return new Meting(hexo, args, contents).generate();
     case "aplayer":
       return new Aplayer(hexo, args, contents).generate();
+    case "dplayer":
+      return new Dplayer(hexo, args, contents).generate();
     default:
       log.warn(`can not resolve ${args[0]}`);
       break;

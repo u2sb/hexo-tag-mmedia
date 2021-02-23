@@ -80,7 +80,7 @@ class AplayerTag extends BaseTag {
     )}'); ${this.mmedia_id}_options.container = document.getElementById("${
       this.tag_id
     }"); `;
-    aplayer_script += `const ap = new APlayer(${this.mmedia_id}_options);`;
+    aplayer_script += `const ap_${this.mmedia_id} = new APlayer(${this.mmedia_id}_options);`;
     this.result += `<script> ${aplayer_script} </script>`;
     return this.result;
   }
