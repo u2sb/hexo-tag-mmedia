@@ -99,7 +99,7 @@ class DplayerTag extends BaseTag {
 
     let dplayer_script = `var ${
       this.mmedia_id
-    }_options = JSON5.parse('${JSON5.stringify(dplayer_options).replace(
+    }_options = JSON.parse('${JSON.stringify(dplayer_options).replace(
       /"([^"]*)"/g,
       '\\"$1\\"'
     )}'); ${this.mmedia_id}_options.container = document.getElementById("${
