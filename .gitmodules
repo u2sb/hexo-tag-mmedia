@@ -1,0 +1,3 @@
+[submodule "themes/yilia"]
+	path = themes/yilia
+	url = https://github.com/u2sb/hexo-theme-yilia

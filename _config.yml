@@ -1,0 +1,291 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: hexo-tag-mmedia
+subtitle: hexo-tag-mmedia demo
+description: ""
+keywords:
+author: "MonoLogueChi"
+language: "Zh-cn"
+timezone: ""
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
+url: https://demo.hexo-tag-mmedia.u2sb.com
+root: /
+permalink: :title.html
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render: "**/**.html"
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ""
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace: ""
+  wrap: true
+  hljs: true
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ""
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ""
+  per_page: 20
+  order_by: -page
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: "mtime"
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: yilia
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ""
+
+#网页压缩
+asset_pipeline:
+  revisioning:
+    enable: false
+  clean_css:
+    enable: false
+  uglify_js:
+    enable: false
+  imagemin:
+    enable: false
+  html_minifier:
+    enable: true
+
+mmedia:
+  aplayer:
+    default:
+      contents:
+        autoplay: false
+  meting:
+    api: https://sm.sm9.top/api/music
+    default:
+      loop: all
+      order: random
+  bilibili:
+    default:
+      page: 1
+
+theme_config:
+  # Header
+  menu:
+    主页: "/"
+    mmedia: "/tags/mmedia/"
+
+  # SubNav
+  subnav:
+    github: "https://github.com/u2sb"
+    #weibo: "https://weibo.com/u/5226533927/"
+    #zhihu: "#"
+    qq: "/assets/html/qq-groups.html"
+    #weixin: 'https://s1.ax2x.com/2018/07/14/q4v9K.png'
+    #jianshu: "#"
+    #douban: "#"
+    #segmentfault: "#"
+    bilibili: "https://space.bilibili.com/28474682/"
+    #acfun: "#"
+    mail: "mailto:xxwhite@foxmail.com"
+    #facebook: "#"
+    #google: "#"
+    #twitter: "#"
+    #linkedin: "#"
+    rss: "/atom.xml"
+
+  rss: "/atom.xml"
+
+  # 是否需要修改 root 路径
+  # 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
+  # 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
+  root:
+
+  # Content
+
+  # 文章太长，截断按钮文字
+  excerpt_link: ""
+  # 文章卡片右下角常驻链接，不需要请设置为false
+  show_all_link: "展开全文"
+  # 数学公式
+  mathjax: false
+  # 是否在新窗口打开链接
+  open_in_new: false
+  fancybox: true
+
+  # 打赏
+  # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+  reward_type: 2
+  # 打赏wording
+  reward_wording: "请作者吃辣条"
+  # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+  alipay: "/assets/img/alipay.png"
+  # 微信二维码图片地址
+  weixin: "/assets/img/wechatpay.png"
+
+  # 版权声明type设定：0-关闭版权声明； 1-文章对应的md文件里有copyright: true属性，才有版权声明； 2-所有copyright不为false的文章均有版权声明
+  copyright_type: 2
+
+  # 备案信息，没有请留空
+  beian:
+
+  # 又拍云开发者计划图片链接，没有请留空
+  upyun:
+
+  # 目录
+  # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
+  toc: 2
+  # 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
+  toc_hide_index: false
+  # 目录为空时的提示
+  toc_empty_wording: "目录，不存在的…"
+
+  # 是否有快速回到顶部的按钮
+  top: true
+
+  # Miscellaneous
+  baidu_analytics:
+  google_analytics:
+  favicon: "/assets/img/favicon.png"
+
+  #你的头像url
+  avatar: "/assets/img/avatar.jpg"
+
+  #是否开启分享
+  share_jia: false
+
+  #评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment
+  #不需要使用某项，直接设置值为false，或注释掉
+  #具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
+
+  #1、多说
+  duoshuo: false
+
+  #2、网易云跟帖
+  wangyiyun: false
+
+  #3、畅言
+  #changyan_appid:
+  #changyan_conf:
+
+  #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
+  disqus: false
+
+  #5、Gitment
+  gitment_owner: false #你的 GitHub ID
+  gitment_repo: "" #存储评论的 repo
+  gitment_oauth:
+    client_id: "" #client ID
+    client_secret: "" #client secret
+
+  # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
+  style:
+    # 头像上面的背景颜色
+    header: "#4d4d4d"
+    # 右滑板块背景
+    slider: "linear-gradient(200deg,#a0cfe4,#e8c37e)"
+
+  # slider的设置
+  slider:
+    # 是否默认展开tags板块
+    showTags: false
+
+  # MarkDown文件下载地址,如：http://md.xxwhite.com
+  mdhost: "https://raw.githubusercontent.com/u2sb/hexo-tag-mmedia/demo/source/_posts"
+  # 网站建站日期
+  wbd:
+    y: 2021
+    m: 02
+    d: 24
+
+  #pangu.js，中英文混排优化
+  pangu: true
+
+  # 智能菜单
+  # 如不需要，将该对应项置为false
+  # 比如
+  #smart_menu:
+  #  friends: false
+  smart_menu:
+    innerArchive: "所有文章"
+    friends: "友链"
+    aboutme: "关于本站"
+
+  friends:
+    叉叉白: "https://blog.xxwhite.com/"
+    # 大姐姐的博客Minemine: "https://minemine.cc/"
+    # 酷安基佬: "http://socoolapk.top/"
+    # Se7en: "https://www.se7ensec.cn/"
+    # 姬长信: "https://blog.isoyu.com/"
+    # CareyQ: "https://careyq.cool"
+    # 随遇而安: "https://www.iszy.cc/"
+    # 2401的晚秋咖啡: "https://zsh2401.top/"
+    # Junzhou Liu: "https://liujunzhou.top/"
+    # Yi-Yun: "https://yi-yun.github.io/"
+    # LmCjl在线工具: "https://www.lmcjl.com"
+    # Freetao’s Blog: "https://blogs.kainy.cn/"
+
+  aboutme: hexo-tag-mmedia demo 站点
