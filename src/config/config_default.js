@@ -42,6 +42,8 @@ module.exports = {
     },
     "xigua": {
       "default": {
+        "autoplay": false,
+        "startTime": 0,
         "allowfullscreen": "allowfullscreen",
         "sandbox": "allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups",
         "width": "100%",
