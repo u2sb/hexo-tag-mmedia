@@ -51,7 +51,7 @@ class BilibiliTag extends BaseTag {
     this.result += `<style>.bbplayer{width: ${data.width}; max-width: ${data.max_width}; margin: ${data.margin}}</style>`;
     this.result += `<div class="bbplayer"><iframe class="bbplayer" id="${
       this.tag_id
-    }" src="//player.bilibili.com/player.html?${
+    }" src="https://player.bilibili.com/player.html?${
       data.bvid ? "bvid=" + data.bvid : "aid=" + data.aid
     }&page=${data.page}&high_quality=1&danmaku=${
       data.danmaku
