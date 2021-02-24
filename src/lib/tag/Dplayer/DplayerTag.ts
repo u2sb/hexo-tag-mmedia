@@ -13,6 +13,7 @@ class DplayerTag extends BaseTag {
   d_parse(options: { [key: string]: any }) {
     let dplayer_options: any = {
       video: {},
+      danmaku: {},
     };
     for (let val in options) {
       if (val != "" && val != null) {
@@ -47,6 +48,8 @@ class DplayerTag extends BaseTag {
             break;
           case "id":
             dplayer_options.danmaku.id = options[val];
+          case "api":
+            dplayer_options.danmaku.api = options[val];
           default:
             break;
         }
