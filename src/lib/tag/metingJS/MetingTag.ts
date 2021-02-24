@@ -1,10 +1,12 @@
 class MetingTag extends BaseTag {
   result: string;
   config: MetingConfig;
+  contents: JSON;
 
-  constructor(hexo: any, config: MetingConfig) {
+  constructor(hexo: any, config: MetingConfig, contents: JSON) {
     super(hexo, config);
     this.config = config;
+    this.contents = contents;
     this.result = "";
   }
 
@@ -26,7 +28,7 @@ class MetingTag extends BaseTag {
       let apistr = `var meting_api='${this.config.meting_api}?server=:server&type=:type&id=:id&auth=:auth&r=:r';`;
       this.result += `<script> ${apistr} </script>`;
     }
-    let meting_data = this.config.data;
+    let meting_data = merge(this.config.data, this.contents);
     let meting_js_config = `<meting-js ${this.parse(meting_data)}></meting-js>`;
     this.result += meting_js_config;
     return this.result;

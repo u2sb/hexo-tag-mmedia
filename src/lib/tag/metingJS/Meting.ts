@@ -13,6 +13,10 @@ class Meting extends BaseMmedia {
         this.meting_config.data[a[0]] = a[1];
       }
     });
-    return new MetingTag(this.hexo, this.meting_config).generate();
+    return new MetingTag(
+      this.hexo,
+      this.meting_config,
+      this.contents
+    ).generate();
   }
 }
