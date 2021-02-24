@@ -51,7 +51,7 @@ class XiguaTag extends BaseTag {
     this.result += `<style>.xgplayer{width: ${data.width}; max-width: ${data.max_width}; margin: ${data.margin}}</style>`;
     this.result += `<div class="xgplayer"><iframe class="xgplayer" id="${
       this.tag_id
-    }" src="//www.ixigua.com/iframe/${data.xid}?${
+    }" src="https://www.ixigua.com/iframe/${data.xid}?${
       data.id ? "id=" + data.id + "&" : ""
     }autoplay=${data.autoplay == "true" ? 1 : 0}&startTime=${
       data.startTime

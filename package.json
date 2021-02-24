@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-mmedia",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A media tag for Hexo",
   "main": "dist/main.js",
   "scripts": {
