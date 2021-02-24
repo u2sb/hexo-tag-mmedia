@@ -4,12 +4,14 @@ abstract class BaseTag {
   hexo: any;
   css: any;
   js: any;
+  contents: JSON;
   protected abstract config: BaseConfig;
-  constructor(hexo: any, config: BaseConfig) {
+  constructor(hexo: any, config: BaseConfig, contents: JSON) {
     this.mmedia_id = utils.randomString(
       16,
       "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
     );
+    this.contents = contents;
     this.tag_id = `mmedia-${this.mmedia_id}`;
     this.hexo = hexo;
     this.css = hexo.extend.helper.get("css").bind(hexo);

@@ -13,6 +13,10 @@ class Bilibili extends BaseMmedia {
         this.bilibili_config.data[a[0]] = a[1];
       }
     });
-    return new BilibiliTag(this.hexo, this.bilibili_config).generate();
+    return new BilibiliTag(
+      this.hexo,
+      this.bilibili_config,
+      this.contents
+    ).generate();
   }
 }

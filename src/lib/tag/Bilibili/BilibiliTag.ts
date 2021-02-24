@@ -2,8 +2,8 @@ class BilibiliTag extends BaseTag {
   result: string;
   config: BilibiliConfig;
 
-  constructor(hexo: any, config: BilibiliConfig) {
-    super(hexo, config);
+  constructor(hexo: any, config: BilibiliConfig, contents: JSON) {
+    super(hexo, config, contents);
     this.config = config;
     this.result = "";
   }
@@ -46,7 +46,7 @@ class BilibiliTag extends BaseTag {
     return bilibili;
   }
   generate(): string {
-    let bilibili_data = this.config.data;
+    let bilibili_data = merge(this.config.data, this.contents);
     let data = this.b_parse(bilibili_data);
     this.result += `<style>.bbplayer{width: ${data.width}; max-width: ${data.max_width}; margin: ${data.margin}}</style>`;
     this.result += `<div class="bbplayer"><iframe class="bbplayer" id="${

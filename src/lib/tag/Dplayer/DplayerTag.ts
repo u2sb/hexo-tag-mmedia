@@ -1,13 +1,11 @@
 class DplayerTag extends BaseTag {
   result: string;
   config: DplayerConfig;
-  contents: JSON;
 
   constructor(hexo: any, config: DplayerConfig, contents: JSON) {
-    super(hexo, config);
+    super(hexo, config, contents);
     this.config = config;
     this.result = "";
-    this.contents = contents;
   }
 
   d_parse(options: { [key: string]: any }) {

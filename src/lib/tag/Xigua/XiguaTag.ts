@@ -2,8 +2,8 @@ class XiguaTag extends BaseTag {
   result: string;
   config: XiguaConfig;
 
-  constructor(hexo: any, config: XiguaConfig) {
-    super(hexo, config);
+  constructor(hexo: any, config: XiguaConfig, contents: JSON) {
+    super(hexo, config, contents);
     this.config = config;
     this.result = "";
   }
@@ -46,7 +46,7 @@ class XiguaTag extends BaseTag {
     return xigua;
   }
   generate(): string {
-    let xigua_data = this.config.data;
+    let xigua_data = merge(this.config.data, this.contents);
     let data = this.x_parse(xigua_data);
     this.result += `<style>.xgplayer{width: ${data.width}; max-width: ${data.max_width}; margin: ${data.margin}}</style>`;
     this.result += `<div class="xgplayer"><iframe class="xgplayer" id="${

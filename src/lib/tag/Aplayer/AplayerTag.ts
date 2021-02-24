@@ -1,10 +1,9 @@
 class AplayerTag extends BaseTag {
   result: string;
   config: AplayerConfig;
-  contents: JSON;
 
   constructor(hexo: any, config: AplayerConfig, contents: JSON) {
-    super(hexo, config);
+    super(hexo, config, contents);
     this.config = config;
     this.result = "";
     this.contents = contents;

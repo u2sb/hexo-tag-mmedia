@@ -13,6 +13,6 @@ class Xigua extends BaseMmedia {
         this.xigua_config.data[a[0]] = a[1];
       }
     });
-    return new XiguaTag(this.hexo, this.xigua_config).generate();
+    return new XiguaTag(this.hexo, this.xigua_config, this.contents).generate();
   }
 }

@@ -1,12 +1,10 @@
 class MetingTag extends BaseTag {
   result: string;
   config: MetingConfig;
-  contents: JSON;
 
   constructor(hexo: any, config: MetingConfig, contents: JSON) {
-    super(hexo, config);
+    super(hexo, config, contents);
     this.config = config;
-    this.contents = contents;
     this.result = "";
   }
 
