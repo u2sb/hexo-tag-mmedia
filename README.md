@@ -18,6 +18,8 @@ npm install hexo-tag-mmedia-0.x --save
 
 见文档 https://www.u2sb.com/pages/748f02/
 
+见DEMO http://demo.hexo-tag-mmedia.u2sb.com/
+
 ## 支持平台
 
 完整列表见相关文档
