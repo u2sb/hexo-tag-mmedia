@@ -22,7 +22,7 @@ class MetingTag extends BaseTag {
     // this.injector("head_end", () => {
     //   return this.js(this.config.meting_js);
     // });
-    if (this.config.meting_api != "") {
+    if (this.config.meting_api && this.config.meting_api != "" && this.config.meting_api != null) {
       let apistr = `var meting_api='${this.config.meting_api}?server=:server&type=:type&id=:id&auth=:auth&r=:r';`;
       this.result += `<script> ${apistr} </script>`;
     }
