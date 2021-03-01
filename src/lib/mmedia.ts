@@ -18,6 +18,8 @@ module.exports = function (hexo: any, args: string[], contents: any) {
       return new Bilibili(hexo, args, contents).generate();
     case "xigua":
       return new Xigua(hexo, args, contents).generate();
+    case "artplayer":
+      return new ArtPlayer(hexo, args, contents).generate();
     default:
       log.warn(`can not resolve ${args[0]}`);
       break;

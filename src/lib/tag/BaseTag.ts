@@ -11,7 +11,7 @@ abstract class BaseTag {
       16,
       "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
     );
-    this.contents = contents;
+    this.contents = merge(config.data.contents, contents);
     this.tag_id = `mmedia-${this.mmedia_id}`;
     this.hexo = hexo;
     this.css = hexo.extend.helper.get("css").bind(hexo);
