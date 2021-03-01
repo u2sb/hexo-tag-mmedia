@@ -24,11 +24,15 @@ npm install hexo-tag-mmedia-0.x --save
 
 完整列表见相关文档
 
-- [Aplayer](https://github.com/DIYgod/APlayer)
-- [Meting](https://github.com/metowolf/MetingJS)
-- [Dplayer](https://github.com/DIYgod/DPlayer)
-- [西瓜视频](https://www.ixigua.com/)
-- [BiliBili](https://www.bilibili.com/)
+- [x] Audio
+- [x] Video
+- [x] [Aplayer](https://github.com/DIYgod/APlayer)
+- [x] [MetingJS](https://github.com/metowolf/MetingJS)
+- [x] [Dplayer](https://github.com/DIYgod/DPlayer)
+- [x] [哔哩哔哩](https://www.bilibili.com/)
+- [x] [西瓜视频](https://www.ixigua.com/)
+- [ ] [YouTube]()
+- [x] [ArtPlayer](https://github.com/zhw2590582/ArtPlayer)
 - 更多平台后续会有更新...
 
 ## 反馈
