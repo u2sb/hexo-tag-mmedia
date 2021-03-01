@@ -1,1 +1,0 @@
-const mmedia=require("./lib/mmedia");hexo.extend.tag.register("mmedia",function(e,i){return mmedia(hexo,e,i)},{async:!0}),hexo.extend.tag.register("mmedias",function(e,i){return mmedia(hexo,e,i)},{ends:!0,async:!0});

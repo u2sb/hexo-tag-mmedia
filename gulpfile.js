@@ -4,9 +4,12 @@ const uglify = require("gulp-uglify");
 const yaml = require("gulp-yaml");
 const merge = require("gulp-merge-json");
 const ts = require("gulp-typescript");
-const concat = require('gulp-concat');
+const concat = require("gulp-concat");
+const replace = require("gulp-replace");
 const tsProject = ts.createProject("tsconfig.json");
 const del = require("delete");
+const execa = require("execa");
+const version = execa.sync("git describe --tags").stdout;
 
 const inputs = ["src/**/*.js"];
 const outputs = "dist/";
@@ -30,6 +33,14 @@ function clean(cb) {
   del(outputs, cb);
 }
 
+function copy(cb) {
+  return src("package.json", cb)
+    .pipe(replace("hexo-mmedia-tag-version", version))
+    .pipe(src("README.md", cb))
+    .pipe(src("LICENSE", cb))
+    .pipe(dest(outputs));
+}
+
 function javascript() {
   return src(inputs).pipe(babel()).pipe(uglify()).pipe(dest(outputs));
 }
@@ -38,11 +49,10 @@ function typescript() {
   return tsProject
     .src()
     .pipe(tsProject())
-    .js
-    .pipe(concat('mmedia.js'))
+    .js.pipe(concat("mmedia.js"))
     .pipe(babel())
     .pipe(uglify())
     .pipe(dest(outputs + "lib"));
 }
 
-exports.build = series(clean, configjs, parallel(typescript, javascript));
+exports.build = series(clean, configjs, parallel(typescript, javascript), copy);
