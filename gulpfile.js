@@ -9,7 +9,10 @@ const replace = require("gulp-replace");
 const tsProject = ts.createProject("tsconfig.json");
 const del = require("delete");
 const execa = require("execa");
-const version = execa.sync("git describe --tags").stdout;
+const version = execa.commandSync("git describe --tags", {
+  shell: true,
+  all: true,
+}).stdout;
 
 const inputs = ["src/**/*.js"];
 const outputs = "dist/";
@@ -34,6 +37,7 @@ function clean(cb) {
 }
 
 function copy(cb) {
+  console.log(version);
   return src("package.json", cb)
     .pipe(replace("hexo-mmedia-tag-version", version))
     .pipe(src("README.md", cb))

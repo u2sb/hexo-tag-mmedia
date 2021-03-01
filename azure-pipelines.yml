@@ -11,7 +11,6 @@ variables:
 
 steps:
   - checkout: self
-    fetchDepth: 1
 
   - task: NodeTool@0
     inputs:
@@ -26,7 +25,10 @@ steps:
         pnpm install
         pnpm run build
         echo "//registry.npmjs.org/:_authToken=$(NPM_TOKEN)" > .npmrc
-        npm config set userconfig=./.npmrc
+        cd dist
+        npm shrinkwrap
+        npm config set userconfig=$(Build.SourcesDirectory)/.npmrc
+        npm publish
 
   - task: Npm@1
     inputs:
