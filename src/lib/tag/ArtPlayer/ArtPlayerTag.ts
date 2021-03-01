@@ -16,6 +16,9 @@ class ArtPlayerTag extends BaseTag {
           case "url":
             artplayer_options.url = options[val];
             break;
+          case "type":
+            artplayer_options.type = options[val];
+            break;
           case "title":
             artplayer_options.title = options[val];
             break;
