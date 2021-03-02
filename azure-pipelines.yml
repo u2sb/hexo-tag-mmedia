@@ -26,6 +26,5 @@ steps:
         pnpm run build
         echo "//registry.npmjs.org/:_authToken=$(NPM_TOKEN)" >> ~/.npmrc
         cd dist
-        npm shrinkwrap
         npm publish
         npm logout

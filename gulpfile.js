@@ -36,12 +36,12 @@ function clean(cb) {
   del(outputs, cb);
 }
 
-function copy(cb) {
-  console.log("create version" + version);
-  return src("package.json", cb)
+function copy() {
+  console.log("create version " + version);
+  return src("package.json")
     .pipe(replace("hexo-mmedia-tag-version", version))
-    .pipe(src("README.md", cb))
-    .pipe(src("LICENSE", cb))
+    .pipe(src("README.md"))
+    .pipe(src("LICENSE"))
     .pipe(dest(outputs));
 }
 
