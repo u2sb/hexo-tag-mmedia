@@ -27,4 +27,3 @@ steps:
         echo "//registry.npmjs.org/:_authToken=$(NPM_TOKEN)" >> ~/.npmrc
         cd dist
         npm publish
-        npm logout
