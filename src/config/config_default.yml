@@ -8,6 +8,7 @@ config_default:
     css: https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css
     default:
       contents:
+        lrcType: 3
   meting:
     js: https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js
     api:
