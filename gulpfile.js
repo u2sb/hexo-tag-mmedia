@@ -37,7 +37,7 @@ function clean(cb) {
 }
 
 function copy(cb) {
-  console.log(version);
+  console.log("create version" + version);
   return src("package.json", cb)
     .pipe(replace("hexo-mmedia-tag-version", version))
     .pipe(src("README.md", cb))

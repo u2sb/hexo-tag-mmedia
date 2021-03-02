@@ -24,13 +24,8 @@ steps:
         pnpm install --global gulp-cli
         pnpm install
         pnpm run build
-        echo "//registry.npmjs.org/:_authToken=$(NPM_TOKEN)" > .npmrc
+        echo "//registry.npmjs.org/:_authToken=$(NPM_TOKEN)" >> ~/.npmrc
         cd dist
         npm shrinkwrap
-        npm config set userconfig=$(Build.SourcesDirectory)/.npmrc
         npm publish
-
-  - task: Npm@1
-    inputs:
-      command: "publish"
-      workingDir: "dist"
+        npm logout

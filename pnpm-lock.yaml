@@ -2084,7 +2084,7 @@ packages:
     dependencies:
       hosted-git-info: 2.8.8
       resolve: 1.20.0
-      semver: 5.7.1
+      semver: 5.4.1
       validate-npm-package-license: 3.0.4
     dev: true
     resolution:
@@ -2593,6 +2593,11 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-E+jCZYq5aRywzXEJMkAoDTb3els=
+  /semver/5.4.1:
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-WfG/X9+oATh81XtllIo/I8gOiY9EXRdv1cQdyykeXK17YcUW3EXUAi2To4pcH6nZtJPr7ZOpM5OMyWJZm+8Rsg==
   /semver/5.7.1:
     dev: true
     hasBin: true
