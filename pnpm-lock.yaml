@@ -9,7 +9,7 @@ dependencies:
   hexo-renderer-marked: 3.3.0
   hexo-renderer-stylus: 2.0.1
   hexo-server: 2.0.0
-  hexo-tag-mmedia: 1.1.1
+  hexo-tag-mmedia: 1.1.6
   hexo-theme-landscape: 0.0.3
 lockfileVersion: 5.2
 packages:
@@ -1155,7 +1155,7 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-VBl/gnfcJ7OercKA9MVaegWsBHFjV492syMudcnQZvt/Dw8ezpcOHYZXa/J96O8vx+g4x65YKhxOwDUh63aS5g==
-  /es-abstract/1.18.0-next.2:
+  /es-abstract/1.18.0-next.3:
     dependencies:
       call-bind: 1.0.2
       es-to-primitive: 1.2.1
@@ -1166,16 +1166,18 @@ packages:
       is-callable: 1.2.3
       is-negative-zero: 2.0.1
       is-regex: 1.1.2
+      is-string: 1.0.5
       object-inspect: 1.9.0
       object-keys: 1.1.1
       object.assign: 4.1.2
       string.prototype.trimend: 1.0.4
       string.prototype.trimstart: 1.0.4
+      unbox-primitive: 1.0.0
     dev: false
     engines:
       node: '>= 0.4'
     resolution:
-      integrity: sha512-Ih4ZMFHEtZupnUh6497zEL4y2+w8+1ljnCyaTa+adcoafI1GOvMwFlDjBLfWR7y9VLfrjRJe9ocuHY1PSR9jjw==
+      integrity: sha512-VMzHx/Bczjg59E6jZOQjHeN3DEoptdhejpARgflAViidlqSpjdq9zA6lKwlhRRs/lOw1gHJv2xkkSFRgvEwbQg==
   /es-to-primitive/1.2.1:
     dependencies:
       is-callable: 1.2.3
@@ -1695,6 +1697,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-NPUEnOHs3ysGSa8+8k5F7TVBbZE=
+  /has-bigints/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==
   /has-flag/3.0.0:
     dev: false
     engines:
@@ -1798,7 +1804,7 @@ packages:
       rev-path: 2.0.0
       soup: 0.1.5
       stream-to-array: 2.3.0
-      uglify-js: 3.12.8
+      uglify-js: 3.13.0
     dev: false
     resolution:
       integrity: sha512-K77h74FtCM5AhxRWJ7fB1w7Xcd4CiebUsTumLcukpccUcUPA3A2emWKAnxIg6dHxOeqKavnJealzSfRThPqsXg==
@@ -1935,7 +1941,7 @@ packages:
       node: '>=10.13.0'
     resolution:
       integrity: sha512-GnxCU0hjepjmqMENcKOKxpzOajb9YrjQczWsZPXU25l5Ze+M9KJLSVljIRFR+ikDRIPDtXaUY2WgYrWPbNEGfg==
-  /hexo-tag-mmedia/1.1.1:
+  /hexo-tag-mmedia/1.1.6:
     dependencies:
       deepmerge: 4.2.2
       hexo-log: 2.0.0
@@ -1943,7 +1949,7 @@ packages:
       utility: 1.17.0
     dev: false
     resolution:
-      integrity: sha512-eUjDv9sroD+o7lt+Q5fsNph9/cEpJH8FE+PRC2qk4YKLGMAfsRmxdst4krnFttNnlmf6BzxFyti7LDM4nl4RnA==
+      integrity: sha512-a0rgOoc0X3mF7DwlerHmsOf2mu6voUv6W5CwBy+eSW4EkRt9AoNxqhHSS2XeCCIsbx4s6dJfwLTJBvGi926+Uw==
   /hexo-theme-landscape/0.0.3:
     dev: false
     resolution:
@@ -2014,7 +2020,7 @@ packages:
       he: 1.2.0
       param-case: 2.1.1
       relateurl: 0.2.7
-      uglify-js: 3.12.8
+      uglify-js: 3.13.0
     dev: false
     engines:
       node: '>=6'
@@ -2207,6 +2213,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+  /is-bigint/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-J0ELF4yHFxHy0cmSxZuheDOz2luOdVvqjwmEcj8H/L1JHeuEDSDbeRP+Dk9kFVk5RTFzbucJ2Kb9F7ixY2QaCg==
   /is-binary-path/2.1.0:
     dependencies:
       binary-extensions: 2.2.0
@@ -2215,6 +2225,14 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==
+  /is-boolean-object/1.1.0:
+    dependencies:
+      call-bind: 1.0.2
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha512-a7Uprx8UtD+HWdyYwnD1+ExtTgqQtD2k/1yJgtXP6wnMm8byhkoTZRl+95LLThpzNZJ5aEvi46cdH+ayMFRwmA==
   /is-buffer/1.1.6:
     dev: false
     resolution:
@@ -2346,6 +2364,12 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-2z6JzQvZRa9A2Y7xC6dQQm4FSTSTNWjKIYYTt4246eMTJmIo0Q+ZyOsU66X8lxK1AbB92dFeglPLrhwpeRKO6w==
+  /is-number-object/1.0.4:
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha512-zohwelOAur+5uXtk8O3GPQ1eAcu4ZX3UwxQhUlfFFMNpUd83gXgjbhJh6HmB6LUNV/ieOLQuDwJO3dWJosUeMw==
   /is-number/3.0.0:
     dependencies:
       kind-of: 3.2.2
@@ -2417,6 +2441,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-XCoy+WlUr7d1+Z8GgSuXmpuUFC9fOhRXglJMx+dwLKTkL44Cjd4W1Z5P+BQZpr+cR93aGP4S/s7Ftw6Nd/kiEw==
+  /is-string/1.0.5:
+    dev: false
+    engines:
+      node: '>= 0.4'
+    resolution:
+      integrity: sha512-buY6VNRjhQMiF1qWDouloZlQbRhDPCebwxSjxMjxgemYT46YMd2NR0/H+fBhEfWX4A/w9TBJ+ol+okqJKFE6vQ==
   /is-svg/4.2.1:
     dependencies:
       html-comment-regex: 1.1.2
@@ -3039,7 +3069,7 @@ packages:
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.3
-      es-abstract: 1.18.0-next.2
+      es-abstract: 1.18.0-next.3
     dev: false
     engines:
       node: '>= 0.8'
@@ -3057,7 +3087,7 @@ packages:
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.3
-      es-abstract: 1.18.0-next.2
+      es-abstract: 1.18.0-next.3
       has: 1.0.3
     dev: false
     engines:
@@ -4204,13 +4234,22 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
-  /uglify-js/3.12.8:
+  /uglify-js/3.13.0:
     dev: false
     engines:
       node: '>=0.8.0'
     hasBin: true
     resolution:
-      integrity: sha512-fvBeuXOsvqjecUtF/l1dwsrrf5y2BCUk9AOJGzGcm6tE7vegku5u/YvqjyDaAGr422PLoLnrxg3EnRvTqsdC1w==
+      integrity: sha512-TWYSWa9T2pPN4DIJYbU9oAjQx+5qdV5RUDxwARg8fmJZrD/V27Zj0JngW5xg1DFz42G0uDYl2XhzF6alSzD62w==
+  /unbox-primitive/1.0.0:
+    dependencies:
+      function-bind: 1.1.1
+      has-bigints: 1.0.1
+      has-symbols: 1.0.2
+      which-boxed-primitive: 1.0.2
+    dev: false
+    resolution:
+      integrity: sha512-P/51NX+JXyxK/aigg1/ZgyccdAxm5K1+n8+tvqSntjOivPt19gvm1VC49RWYetsiub8WViUchdxl/KWHHB0kzA==
   /unbzip2-stream/1.4.3:
     dependencies:
       buffer: 5.7.1
@@ -4355,6 +4394,16 @@ packages:
       node: '>=10.13.0'
     resolution:
       integrity: sha512-9i6/JiHzjnyene5Pvvl2D2Pd18no129YGy0C0P7x18iTz/SeO9nOBioR64XoCy5xKwBKQtl3MU361qpr0V9uXw==
+  /which-boxed-primitive/1.0.2:
+    dependencies:
+      is-bigint: 1.0.1
+      is-boolean-object: 1.1.0
+      is-number-object: 1.0.4
+      is-string: 1.0.5
+      is-symbol: 1.0.3
+    dev: false
+    resolution:
+      integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==
   /which/1.3.1:
     dependencies:
       isexe: 2.0.0
@@ -4403,5 +4452,5 @@ specifiers:
   hexo-renderer-marked: ^3.3.0
   hexo-renderer-stylus: ^2.0.1
   hexo-server: ^2.0.0
-  hexo-tag-mmedia: ^1.1.1
+  hexo-tag-mmedia: ^1.1.6
   hexo-theme-landscape: ^0.0.3
