@@ -1,8 +1,10 @@
 config_default:
   audio:
     default:
+      controls: true
   video:
     default:
+      controls: true
   aplayer:
     js: https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.js
     css: https://cdn.jsdelivr.net/npm/aplayer@1/dist/APlayer.min.css
