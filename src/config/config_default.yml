@@ -42,6 +42,7 @@ config_default:
     default:
       page: 1
       danmaku: true
+      autoplay: false
       allowfullscreen: allowfullscreen
       sandbox: allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups
       width: 100%

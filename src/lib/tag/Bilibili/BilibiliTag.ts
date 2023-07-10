@@ -40,6 +40,9 @@ class BilibiliTag extends BaseTag {
           case "margin":
             bilibili.margin = options[val];
             break;
+          case "autoplay":
+            bilibili.autoplay = options[val];
+            break;
         }
       }
     }
@@ -53,8 +56,8 @@ class BilibiliTag extends BaseTag {
       this.tag_id
     }" src="https://player.bilibili.com/player.html?${
       data.bvid ? "bvid=" + data.bvid : "aid=" + data.aid
-    }&page=${data.page}&high_quality=1&danmaku=${
-      data.danmaku
+    }&page=${data.page}&high_quality=1&danmaku=${data.danmaku}&autoplay=${
+      data.autoplay == false ? 0 : 1
     }" allowfullscreen="${
       data.allowfullscreen == "allowfullscreen" ||
       data.allowfullscreen == "true"
