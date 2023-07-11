@@ -1,11 +1,9 @@
 class DplayerTag extends BaseTag {
-  result: string;
   config: DplayerConfig;
 
   constructor(hexo: any, config: DplayerConfig, contents: JSON) {
     super(hexo, config, contents);
     this.config = config;
-    this.result = "";
   }
 
   d_parse(options: { [key: string]: any }) {
@@ -91,11 +89,6 @@ class DplayerTag extends BaseTag {
 
     let data = this.config.data;
     let dplayer_options = utils.assign(this.d_parse(data), this.contents);
-    this.d_js(data).forEach((item) => {
-      if (item && item != "" && item != null) {
-        this.result += `<script src="${item}"></script>`;
-      }
-    });
 
     this.result += `<div id="${this.tag_id}"></div>`;
 
@@ -107,7 +100,15 @@ class DplayerTag extends BaseTag {
     )}'); ${this.mmedia_id}_options.container = document.getElementById("${
       this.tag_id
     }"); `;
-    dplayer_script += `const dp_${this.mmedia_id} = new DPlayer(${this.mmedia_id}_options);`;
+
+    this.d_js(data).forEach((item) => {
+      if (item && item != "" && item != null) {
+        dplayer_script += `HEXO_MMEDIA_DATA.js.push("${item}");`;
+      }
+    });
+
+    dplayer_script += `HEXO_MMEDIA_DATA.js.push("${this.config.dplayer_js}");`;
+    dplayer_script += `HEXO_MMEDIA_DATA.dplayerData.push(${this.mmedia_id}_options);`;
     this.result += `<script> ${dplayer_script} </script>`;
     return this.result;
   }

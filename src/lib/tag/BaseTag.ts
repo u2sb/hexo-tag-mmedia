@@ -1,12 +1,14 @@
 abstract class BaseTag {
+  result: string;
   mmedia_id: string;
   tag_id: string;
   hexo: any;
-  css: any;
-  js: any;
+  css: Function;
+  js: Function;
   contents: JSON;
   protected abstract config: BaseConfig;
   constructor(hexo: any, config: BaseConfig, contents: JSON) {
+    this.result = "";
     this.mmedia_id = utils.randomString(
       16,
       "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
@@ -14,8 +16,20 @@ abstract class BaseTag {
     this.contents = merge(config.data.contents, contents);
     this.tag_id = `mmedia-${this.mmedia_id}`;
     this.hexo = hexo;
-    this.css = hexo.extend.helper.get("css").bind(hexo);
-    this.js = hexo.extend.helper.get("js").bind(hexo);
+    this.js = (s: string, isFile: boolean = true) => {
+      if (isFile) {
+        this.result += `<script src="${s}"></script>`;
+      } else {
+        this.result += `<script>${s}</script>`;
+      }
+    };
+    this.css = (s: string, isFile: boolean = true) => {
+      if (isFile) {
+        this.result += `<link rel="stylesheet" href="${s}">`;
+      } else {
+        this.result += `<style>${s}</style>`;
+      }
+    };
   }
   parse(options: { [key: string]: any }): string {
     let data = "";

@@ -1,11 +1,9 @@
 class AplayerTag extends BaseTag {
-  result: string;
   config: AplayerConfig;
 
   constructor(hexo: any, config: AplayerConfig, contents: JSON) {
     super(hexo, config, contents);
     this.config = config;
-    this.result = "";
     this.contents = contents;
   }
 
@@ -61,8 +59,6 @@ class AplayerTag extends BaseTag {
   }
 
   generate(): string {
-    this.result += `<link rel="stylesheet" href="${this.config.aplayer_css}">`;
-    this.result += `<script src="${this.config.aplayer_js}"></script>`;
     this.result += `<div id="${this.tag_id}"></div>`;
     let data = this.config.data;
     let aplayer_options = utils.assign({}, [
@@ -76,10 +72,14 @@ class AplayerTag extends BaseTag {
     }_options = JSON.parse('${JSON.stringify(aplayer_options).replace(
       /"([^"]*)"/g,
       '\\"$1\\"'
-    )}'); ${this.mmedia_id}_options.container = document.getElementById("${
+    )}');
+    ${this.mmedia_id}_options.container = document.getElementById("${
       this.tag_id
-    }"); `;
-    aplayer_script += `const ap_${this.mmedia_id} = new APlayer(${this.mmedia_id}_options);`;
+    }");`;
+
+    aplayer_script += `HEXO_MMEDIA_DATA.css.push("${this.config.aplayer_css}");`;
+    aplayer_script += `HEXO_MMEDIA_DATA.js.push("${this.config.aplayer_js}");`;
+    aplayer_script += `HEXO_MMEDIA_DATA.aplayerData.push(${this.mmedia_id}_options);`;
     this.result += `<script> ${aplayer_script} </script>`;
     return this.result;
   }

@@ -1,11 +1,9 @@
 class VideoTag extends BaseTag {
-  result: string;
   config: VideoConfig;
 
   constructor(hexo: any, config: VideoConfig, contents: JSON) {
     super(hexo, config, contents);
     this.config = config;
-    this.result = "";
   }
 
   generate(): string {

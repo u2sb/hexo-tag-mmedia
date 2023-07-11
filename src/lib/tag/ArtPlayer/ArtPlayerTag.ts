@@ -1,11 +1,9 @@
 class ArtPlayerTag extends BaseTag {
-  result: string;
   config: ArtPlayerConfig;
 
   constructor(hexo: any, config: ArtPlayerConfig, contents: JSON) {
     super(hexo, config, contents);
     this.config = config;
-    this.result = "";
   }
 
   art_parse(options: { [key: string]: any }) {
@@ -75,15 +73,8 @@ class ArtPlayerTag extends BaseTag {
   }
 
   generate(): string {
-    this.result += `<script src="${this.config.artplayer_js}"></script>`;
-
     let data = this.config.data;
     let artplayer_options = utils.assign(this.art_parse(data), this.contents);
-    this.art_js(data).forEach((item) => {
-      if (item && item != "" && item != null) {
-        this.result += `<script src="${item}"></script>`;
-      }
-    });
 
     this.result += `<div id="${this.tag_id}" style="${artplayer_options.style}"></div>`;
 
@@ -93,7 +84,15 @@ class ArtPlayerTag extends BaseTag {
       /"([^"]*)"/g,
       '\\"$1\\"'
     )}'); ${this.mmedia_id}_options.container = "#${this.tag_id}"; `;
-    artplayer_script += `const art_${this.mmedia_id} = new Artplayer(${this.mmedia_id}_options);`;
+
+    this.art_js(data).forEach((item) => {
+      if (item && item != "" && item != null) {
+        artplayer_script += `HEXO_MMEDIA_DATA.js.push("${item}");`;
+      }
+    });
+
+    artplayer_script += `HEXO_MMEDIA_DATA.js.push("${this.config.artplayer_js}");`;
+    artplayer_script += `HEXO_MMEDIA_DATA.artPlayerData.push(${this.mmedia_id}_options);`;
     this.result += `<script> ${artplayer_script} </script>`;
     return this.result;
   }

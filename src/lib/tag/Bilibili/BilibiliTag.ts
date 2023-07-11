@@ -1,11 +1,9 @@
 class BilibiliTag extends BaseTag {
-  result: string;
   config: BilibiliConfig;
 
   constructor(hexo: any, config: BilibiliConfig, contents: JSON) {
     super(hexo, config, contents);
     this.config = config;
-    this.result = "";
   }
 
   b_parse(options: { [key: string]: any }) {

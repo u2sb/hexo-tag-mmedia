@@ -1,11 +1,9 @@
 class XiguaTag extends BaseTag {
-  result: string;
   config: XiguaConfig;
 
   constructor(hexo: any, config: XiguaConfig, contents: JSON) {
     super(hexo, config, contents);
     this.config = config;
-    this.result = "";
   }
 
   x_parse(options: { [key: string]: any }) {
