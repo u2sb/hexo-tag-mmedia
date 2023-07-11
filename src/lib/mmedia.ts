@@ -1,7 +1,5 @@
 const utils = require("utility");
 
-const log = require("hexo-log")({ name: "hexo-tag-mmedia", debug: false });
-
 module.exports = function (hexo: any, args: string[], contents: any) {
   switch (args[0]) {
     case "audio":
@@ -21,7 +19,6 @@ module.exports = function (hexo: any, args: string[], contents: any) {
     case "artplayer":
       return new ArtPlayer(hexo, args, contents).generate();
     default:
-      log.warn(`can not resolve ${args[0]}`);
       break;
   }
 };

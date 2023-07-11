@@ -46,11 +46,5 @@
     "gulp-uglify": "^3.0.2",
     "gulp-yaml": "^2.0.4",
     "typescript": "^5.1.6"
-  },
-  "dependencies": {
-    "deepmerge": "^4.3.1",
-    "hexo-log": "^4.0.1",
-    "json5": "^2.2.3",
-    "utility": "^1.18.0"
   }
 }

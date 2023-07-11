@@ -8,9 +8,6 @@ dependencies:
   deepmerge:
     specifier: ^4.3.1
     version: 4.3.1
-  hexo-log:
-    specifier: ^4.0.1
-    version: 4.0.1
   json5:
     specifier: ^2.2.3
     version: 2.2.3
@@ -1547,13 +1544,6 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /hexo-log@4.0.1:
-    resolution: {integrity: sha512-jB2EADDJIwtepfUxiNCTN/5Ysa0B7vYMzkih69FAiubXcnMomKgx5WOlqODVfKnXYw0OQk1Fxrf5LVmfpR0i8w==}
-    engines: {node: '>=14'}
-    dependencies:
-      picocolors: 1.0.0
-    dev: false
-
   /homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
@@ -2298,6 +2288,7 @@ packages:
 
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+    dev: true
 
   /pify@2.3.0:
     resolution: {integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=}
