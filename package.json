@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "hexo-fs": "^4.1.1",
+    "json5": "^2.2.3",
     "utility": "^1.18.0"
   }
 }

@@ -8,6 +8,9 @@ dependencies:
   hexo-fs:
     specifier: ^4.1.1
     version: 4.1.1
+  json5:
+    specifier: ^2.2.3
+    version: 2.2.3
   utility:
     specifier: ^1.18.0
     version: 1.18.0
@@ -2110,7 +2113,6 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
-    dev: true
 
   /just-debounce@1.1.0:
     resolution: {integrity: sha512-qpcRocdkUmf+UTNBYx5w6dexX5J31AKK1OmPwH630a83DdVVUIngk55RSAiIGpQyoH0dlr872VHfPjnQnK1qDQ==}
