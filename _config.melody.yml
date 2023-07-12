@@ -1,0 +1,22 @@
+highlight_theme: light
+
+auto_excerpt:
+  enable: true
+  length: 150
+
+toc:
+  enable: true # or false
+  number: true # or false. 版本v1.5.6新增
+
+QR_code:
+  - itemlist:
+      img: /assets/img/alipay.png
+      text: 支付宝打赏
+  - itemlist:
+      img: /assets/img/wechatpay.png
+      text: 微信打赏
+
+since: 2019
+
+busuanzi:
+  enable: false

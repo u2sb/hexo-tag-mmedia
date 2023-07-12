@@ -1,15 +1,10 @@
-# Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-
 # Site
 title: hexo-tag-mmedia
 subtitle: hexo-tag-mmedia demo
-description: ""
-keywords:
+description: "A demo for hexo-tag-mmedia"
 author: "MonoLogueChi"
-language: "Zh-cn"
-timezone: ""
+language: "zh-Hans"
+timezone: "Asia/Shanghai"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
@@ -31,100 +26,21 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render: "**/**.html"
 
+# Theme
+theme: melody
+
 # Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: false # Transform title into titlecase
-external_link:
-  enable: true # Open external links in new tab
-  field: site # Apply to the whole site
-  exclude: ""
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
-  tab_replace: ""
-  wrap: true
-  hljs: true
-prismjs:
-  enable: false
-  preprocess: true
-  line_number: true
-  tab_replace: ""
-
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
-index_generator:
-  path: ""
-  per_page: 20
-  order_by: -page
-
-# Category & Tag
-default_category: uncategorized
-category_map:
-tag_map:
-
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
-
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-## updated_option supports 'mtime', 'date', 'empty'
-updated_option: "mtime"
-
-# Pagination
-## Set per_page to 0 to disable pagination
-per_page: 20
-pagination_dir: page
-
-# Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
-
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-theme: yilia
-
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ""
-
-#网页压缩
-asset_pipeline:
-  revisioning:
-    enable: false
-  clean_css:
-    enable: false
-  uglify_js:
-    enable: false
-  imagemin:
-    enable: false
-  html_minifier:
-    enable: true
 
 mmedia:
+  loader_path: https://cdn.jsdelivr.net/npm/hexo-tag-mmedia@1.2.1/mmedia-loader.js
   aplayer:
     default:
       contents:
         autoplay: false
   meting:
-    api: https://sm.sm9.top/api/music
     default:
       loop: all
       order: random
